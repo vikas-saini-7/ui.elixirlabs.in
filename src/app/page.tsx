@@ -12,7 +12,7 @@ export default function Home() {
         className="mb-6"
       />
       <h1 className="text-3xl md:text-5xl font-bold text-center">
-        Coming Soon
+        Coming Soon...
       </h1>
       <p className="text-gray-600 text-center mt-2 text-lg">
         We&apos;re working hard to launch something amazing.
