@@ -15,7 +15,7 @@ export default function Home() {
         Coming Soon
       </h1>
       <p className="text-gray-600 text-center mt-2 text-lg">
-        We're working hard to launch something amazing.
+        We&apos;re working hard to launch something amazing.
       </p>
     </main>
   );
