@@ -9,7 +9,7 @@ import Link from "next/link";
 const mainNavigations = [
   {
     label: "Docs",
-    href: "/docs/introduction",
+    href: "/docs/overview/introduction",
   },
   {
     label: "Examples",

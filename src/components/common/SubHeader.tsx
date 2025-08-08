@@ -13,13 +13,12 @@ const navigations = [
   {
     icon: <IconRocket size={18} />,
     label: "Overview",
-    href: "/docs/introduction",
-    matchPaths: ["/docs/introduction", "/docs/installation", "/docs/releases"], // overview related
+    href: "/docs/overview/introduction",
   },
   {
     icon: <IconBox size={18} />,
     label: "Components",
-    href: "/docs/components",
+    href: "/docs/components/alert",
   },
   {
     icon: <IconLayout size={18} />,
@@ -38,9 +37,7 @@ const SubHeader = () => {
       <div>
         <ul className="flex items-center gap-8 text-sm">
           {navigations.map((item, idx) => {
-            const isActive = item.matchPaths
-              ? item.matchPaths.some((p) => pathname.startsWith(p))
-              : pathname.startsWith(item.href || "");
+            const isActive = pathname.startsWith(item.href || "");
 
             return (
               <li key={idx} className="flex items-center gap-1">
@@ -55,9 +52,9 @@ const SubHeader = () => {
                 ) : (
                   <Link
                     href={item.href || "#"}
-                    className={`flex items-center gap-1 transition border-b-2 h-12 ${
+                    className={`flex items-center gap-1 transition border-b h-12 ${
                       isActive
-                        ? "text-purple-500 border-purple-500"
+                        ? "text-white border-purple-500"
                         : "hover:text-white border-transparent"
                     }`}
                   >

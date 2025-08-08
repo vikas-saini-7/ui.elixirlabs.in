@@ -4,25 +4,21 @@ import { usePathname } from "next/navigation";
 import React from "react";
 
 const overviewNavigations = [
-  { label: "Introduction", href: "/docs/introduction" },
-  { label: "Installation", href: "/docs/installation" },
-  { label: "Releases", href: "/docs/releases" },
+  { label: "Introduction", href: "/docs/overview/introduction" },
+  { label: "Getting Started", href: "/docs/overview/getting-started" },
+  { label: "Installation", href: "/docs/overview/installation" },
+  { label: "Releases", href: "/docs/overview/releases" },
 ];
 
 const componentsNavigations = [
   { label: "Alert", href: "/docs/components/alert" },
   { label: "Button", href: "/docs/components/button" },
-  { label: "Releases", href: "/docs/components/" },
 ];
 
 const DocsMenu = () => {
   const pathname = usePathname();
 
-  const lastSegment = pathname?.split("/").filter(Boolean).pop() || "";
-
-  const isOverviewPage = ["introduction", "installation", "releases"].includes(
-    lastSegment
-  );
+  const isOverviewPage = pathname.startsWith("/docs/overview");
 
   const isComponentPage = pathname.startsWith("/docs/components");
 
@@ -43,7 +39,7 @@ const DocsMenu = () => {
               <li
                 className={`px-4 py-2 rounded cursor-pointer text-sm transition-colors ${
                   isActive
-                    ? "bg-purple-500/10 text-purple-500 font-medium"
+                    ? "bg-purple-500/10 text-purple-500 font-bold"
                     : "text-neutral-300 hover:text-white"
                 }`}
               >
