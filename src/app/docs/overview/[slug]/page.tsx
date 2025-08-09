@@ -18,7 +18,7 @@ export default async function Page({ params }: PageProps) {
     <>
       <div className="mb-6">
         <h2 className="text-purple-500 font-medium mb-2">/ Overview</h2>
-        <h1 className="capitalize text-4xl font-bold">{pageTitle}</h1>
+        <h1 className="capitalize text-4xl font-bold font-heading">{pageTitle}</h1>
       </div>
       <article>
         <MDXContent />
