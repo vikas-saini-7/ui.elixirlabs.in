@@ -1,6 +1,7 @@
+import React from "react";
 import DocsAside from "@/components/docs/DocsAside";
 import DocsMenu from "@/components/docs/DocsMenu";
-import React from "react";
+import "@/app/article.css";
 export default function OverviewLayout({
   children,
 }: {

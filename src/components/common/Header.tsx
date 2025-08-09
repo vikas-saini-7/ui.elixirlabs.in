@@ -23,7 +23,7 @@ const mainNavigations = [
 
 const Header: React.FC = () => {
   return (
-    <header className="container mx-auto px-4 h-[64px] flex items-center justify-between border-b">
+    <header className="container mx-auto px-4 h-[64px] flex items-center justify-between border-b border-dashed">
       {/* left  */}
       <div className="flex items-center gap-8 text-sm">
         <Link href="/" className="flex items-center gap-1">

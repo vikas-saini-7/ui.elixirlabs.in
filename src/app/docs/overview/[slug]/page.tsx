@@ -1,0 +1,39 @@
+// app/docs/[slug]/page.tsx (or .tsx as per your routing)
+import React from "react";
+
+interface PageProps {
+  params: { slug: string };
+}
+
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+  const pageTitle = slug.replace(/[^a-zA-Z ]/g, " ");
+
+  // Dynamically import MDX component
+  const { default: MDXContent } = await import(
+    `@/content/docs/overview/${slug}.mdx`
+  );
+
+  return (
+    <>
+      <div className="mb-6">
+        <h2 className="text-purple-500 font-medium mb-2">/ Overview</h2>
+        <h1 className="capitalize text-4xl font-bold">{pageTitle}</h1>
+      </div>
+      <article>
+        <MDXContent />
+      </article>
+    </>
+  );
+}
+
+// export function generateStaticParams() {
+//   return [
+//     { slug: "welcome" },
+//     { slug: "about" },
+//     { slug: "button" },
+//     { slug: "alert" },
+//   ];
+// }
+
+export const dynamicParams = false;

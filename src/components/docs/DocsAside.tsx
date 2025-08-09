@@ -16,7 +16,7 @@ const sections = [
 
 const DocsAside = () => {
   return (
-    <div className="min-h-[80vh]">
+    <div className="min-h-[80vh] sticky top-16">
       <div className="">
         <OnThisPage sections={sections} />
         <div className="mt-4">

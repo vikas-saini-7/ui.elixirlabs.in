@@ -6,7 +6,7 @@ interface Section {
 
 export default function OnThisPage({ sections }: { sections: Section[] }) {
   return (
-    <div className="sticky top-20 hidden lg:block w-64 text-neutral-300">
+    <div className="hidden lg:block w-64 text-neutral-300">
       <h2 className="mb-3 text-sm font-semibold text-white">On this page</h2>
       <nav className="space-y-4">
         {sections.map((section, index) => (
