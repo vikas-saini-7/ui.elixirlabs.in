@@ -1,5 +1,6 @@
 // app/docs/[slug]/page.tsx (or .tsx as per your routing)
 import React from "react";
+import DocsAside from "@/components/docs/DocsAside";
 
 interface PageProps {
   params: { slug: string };
@@ -15,15 +16,22 @@ export default async function Page({ params }: PageProps) {
   );
 
   return (
-    <>
-      <div className="mb-6">
-        <h2 className="text-purple-500 font-medium mb-2">/ Overview</h2>
-        <h1 className="capitalize text-4xl font-bold font-heading">{pageTitle}</h1>
+    <div className="flex">
+      <div className="w-4/5 px-24">
+        <div className="mb-6">
+          <h2 className="text-purple-500 font-medium mb-2">/ Overview</h2>
+          <h1 className="capitalize text-4xl font-bold font-heading">
+            {pageTitle}
+          </h1>
+        </div>
+        <article>
+          <MDXContent />
+        </article>
       </div>
-      <article>
-        <MDXContent />
-      </article>
-    </>
+      <aside className="w-1/5">
+        <DocsAside slug={`src/content/docs/overview/${slug}.mdx`} />
+      </aside>
+    </div>
   );
 }
 
