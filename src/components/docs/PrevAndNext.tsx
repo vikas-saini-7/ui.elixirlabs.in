@@ -61,10 +61,12 @@ const PrevAndNext = () => {
         {prevPage ? (
           <Link
             href={prevPage.href}
-            className="flex flex-col items-start border rounded p-8 hover:border-gray-500/50 hover:border-dashed transition-colors w-full"
+            className="flex flex-col items-start border rounded p-8 border-gray-500/10 hover:border-purple-500/20 transition-colors w-full group"
           >
-            <p className="text-xs text-gray-500">Previous Page</p>
-            <p className="hover:text-purple-600 transition-colors">
+            <p className="text-xs text-gray-500 transition-colors">
+              Previous Page
+            </p>
+            <p className="hover:text-purple-600 group-hover:text-purple-500 transition-colors">
               {prevPage.label}
             </p>
           </Link>
@@ -79,10 +81,12 @@ const PrevAndNext = () => {
         {nextPage ? (
           <Link
             href={nextPage.href}
-            className="flex flex-col items-end justify-end border rounded p-8 hover:border-gray-500/50 hover:border-dashed transition-colors w-full text-right"
+            className="flex flex-col items-end justify-end border rounded p-8 border-gray-500/10 hover:border-purple-500/20 transition-colors w-full text-right group"
           >
-            <p className="text-xs text-gray-500">Next Page</p>
-            <p className="hover:text-purple-600 transition-colors">
+            <p className="text-xs text-gray-500 transition-colors">
+              Next Page
+            </p>
+            <p className="hover:text-purple-600 group-hover:text-purple-500 transition-colors">
               {nextPage.label}
             </p>
           </Link>

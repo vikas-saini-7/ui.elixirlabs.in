@@ -20,7 +20,9 @@ export default async function Page({ params }: PageProps) {
     <div className="flex">
       <div className="w-4/5 px-24">
         <div className="mb-6">
-          <h2 className="text-purple-500 font-medium mb-2">/ Overview</h2>
+          <h2 className="text-purple-500 font-bold my-2 mt-4 text-sm">
+            / Overview
+          </h2>
           <h1 className="capitalize text-4xl font-bold font-heading">
             {pageTitle}
           </h1>
