@@ -9,6 +9,8 @@ interface Section {
 
 export default function OnThisPage({ sections }: { sections: Section[] }) {
   const [activeId, setActiveId] = useState<string>("");
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollProgress, setScrollProgress] = useState<number>(0);
 
   useEffect(() => {

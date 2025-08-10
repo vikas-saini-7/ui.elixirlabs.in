@@ -4,7 +4,7 @@ import DocsAside from "@/components/docs/DocsAside";
 import PrevAndNext from "@/components/docs/PrevAndNext";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default async function Page({ params }: PageProps) {

@@ -3,11 +3,11 @@ import React from "react";
 import DocsAside from "@/components/docs/DocsAside";
 import PrevAndNext from "@/components/docs/PrevAndNext";
 
-interface PageProps {
-  params: { slug: string };
+interface DocsPageProps {
+  params: Promise<{ slug: string }>;
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: DocsPageProps) {
   const { slug } = await params;
   const pageTitle = slug.replace(/[^a-zA-Z ]/g, " ");
 
