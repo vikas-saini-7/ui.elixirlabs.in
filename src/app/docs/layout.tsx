@@ -1,6 +1,6 @@
-import DocsAside from "@/components/docs/DocsAside";
-import DocsMenu from "@/components/docs/DocsMenu";
 import React from "react";
+import DocsMenu from "@/components/docs/DocsMenu";
+import "@/app/article.css";
 export default function OverviewLayout({
   children,
 }: {
@@ -11,10 +11,7 @@ export default function OverviewLayout({
       <div className="w-1/6">
         <DocsMenu />
       </div>
-      <div className="w-4/6 px-24">{children}</div>
-      <aside className="w-1/5">
-        <DocsAside />
-      </aside>
+      <div className="flex-1">{children}</div>
     </div>
   );
 }

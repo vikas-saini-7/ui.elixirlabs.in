@@ -1,22 +1,16 @@
 import React from "react";
 import OnThisPage from "@/components/docs/OnThisPage";
+import { getMdxHeadings } from "@/lib/getMdxHeadings";
 
-const sections = [
-  {
-    // title: "Implementing a Popover",
-    items: [
-      { title: "1. Install the library", href: "#install-the-library" },
-      { title: "2. Import the parts", href: "#import-the-parts" },
-      { title: "3. Add your styles", href: "#add-your-styles" },
-      { title: "Demo", href: "#demo" },
-    ],
-  },
-//   { title: "Summary", href: "#summary" },
-];
+interface DocsAsideProps {
+  slug: string;
+}
 
-const DocsAside = () => {
+const DocsAside = ({ slug }: DocsAsideProps) => {
+  const headings = getMdxHeadings(`${slug}`);
+  const sections = [{ items: headings }];
   return (
-    <div className="min-h-[80vh]">
+    <div className="min-h-[80vh] sticky top-16">
       <div className="">
         <OnThisPage sections={sections} />
         <div className="mt-4">
