@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "name": "ui",
+  "description": "Component registry for UI components",
+  "url": "https://ui.elixirlabs.in/registry",
+  "components": [
+    {
+      "name": "gaming-button",
+      "type": "registry:ui",
+      "description": "A gaming-button component",
+      "tags": [
+        "ui",
+        "component",
+        "button"
+      ],
+      "category": "ui"
+    },
+    {
+      "name": "on-this-page",
+      "type": "registry:ui",
+      "description": "A on-this-page component",
+      "tags": [
+        "ui",
+        "component",
+        "form"
+      ],
+      "category": "ui"
+    }
+  ]
+}
