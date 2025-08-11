@@ -109,14 +109,14 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
           />
           <button
             onClick={onClose}
-            className="p-2 text-gray-500 hover:text-gray-300 transition-colors rounded-md hover:bg-gray-800/30"
+            className="p-2 text-gray-500 hover:text-gray-300 transition-colors rounded-md hover:bg-gray-500/20"
           >
             <IconX size={16} />
           </button>
         </div>
 
         {/* Results */}
-        <div className="max-h-96 overflow-y-auto px-2">
+        <div className="max-h-96 overflow-y-auto px-3">
           {filteredItems.length > 0 ? (
             <div className="py-3 space-y-2">
               {filteredItems.map((item, index) => (
