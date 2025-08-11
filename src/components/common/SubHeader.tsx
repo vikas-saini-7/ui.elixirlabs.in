@@ -71,7 +71,7 @@ const SubHeader = () => {
       </div>
       <div>
         <ul className="flex items-center gap-4">
-          <Link href="https://www.pro.elixirlabs.in" target="_blank">
+          <Link href="https://pro.elixirlabs.in" target="_blank">
             <li className="flex items-center gap-1 bg-gradient-to-tr from-yellow-700 to-yellow-500 hover:from-yellow-600 hover:to-yellow-400 text-black px-2 py-1 rounded">
               <IconBrandSketch size={18} />
               Get Premium
