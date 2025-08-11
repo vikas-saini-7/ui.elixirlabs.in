@@ -8,7 +8,7 @@ import {
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { docsNavigation } from "@/lib/docs-nav";
+import { docsNavigation, NavItem } from "@/lib/docs-nav";
 
 const navigations = [
   {
@@ -20,7 +20,7 @@ const navigations = [
   {
     icon: <IconBox size={18} />,
     label: "Components",
-    href: docsNavigation.components[0].href,
+    href: (docsNavigation.components[0] as NavItem).href,
     match: "/docs/components",
   },
   {

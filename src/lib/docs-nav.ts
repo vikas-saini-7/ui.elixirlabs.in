@@ -28,5 +28,5 @@ export const docsNavigation = {
     //     { label: "Select", href: "/docs/components/select" },
     //   ],
     // },
-  ] as NavItem[],
+  ] as NavigationItem[],
 };
