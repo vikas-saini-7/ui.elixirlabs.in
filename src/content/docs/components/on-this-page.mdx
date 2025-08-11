@@ -1,0 +1,31 @@
+import { OnThisPage } from "@/registry/on-this-page";
+import ComponentViewerBox from "../../views/ComponentViewerBox";
+
+<ComponentViewerBox background={false}>
+  <OnThisPage
+    sections={[
+      {
+        items: [
+          { title: "Introduction", href: "#introduction" },
+          { title: "Usage", href: "#usage" },
+          { title: "Props", href: "#props" },
+        ],
+      },
+    ]}
+    activeClassName="text-purple-400"
+    inactiveClassName="text-neutral-500 hover:text-white"
+    indicatorClassName="bg-purple-500"
+  />
+</ComponentViewerBox>
+
+## Introduction
+
+Some intro text.
+
+## Usage
+
+Details about usage.
+
+## Props
+
+Details about props.

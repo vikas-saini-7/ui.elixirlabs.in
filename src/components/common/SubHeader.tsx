@@ -35,7 +35,7 @@ const SubHeader = () => {
   if (pathname === "/") return null;
 
   return (
-    <div className="container mx-auto px-4 h-[48px] flex items-center justify-between border-b border-dashed text-white/70 sticky top-0 backdrop-blur-md">
+    <div className="container mx-auto px-4 h-[48px] flex items-center justify-between border-b border-dashed text-white/70 sticky top-0 backdrop-blur-md z-50">
       <div>
         <ul className="flex items-center gap-8 text-sm">
           {navigations.map((item, idx) => {

@@ -14,8 +14,6 @@ export interface OnThisPageSection {
 export interface OnThisPageProps {
   sections: OnThisPageSection[];
 
-  /** Title text */
-  title?: string;
   /** Active link color classes */
   activeClassName?: string;
   /** Inactive link color classes */
@@ -34,7 +32,6 @@ export interface OnThisPageProps {
 
 export function OnThisPage({
   sections,
-  title = "On this page",
   activeClassName = "text-white",
   inactiveClassName = "text-neutral-400 hover:text-white",
   indicatorClassName = "bg-gradient-to-b from-purple-400 to-purple-500",
@@ -96,12 +93,11 @@ export function OnThisPage({
 
   return (
     <div className="hidden lg:block w-64 text-neutral-300">
-      <h2 className="mb-3 text-sm font-semibold text-white">{title}</h2>
       <nav className="space-y-4">
         {sections.map((section, index) => (
           <div key={index}>
             {section.items && (
-              <ol className="mt-2 space-y-1 border-l border-neutral-700 pl-4 relative">
+              <div className="space-y-1 border-l border-neutral-700 relative">
                 <div
                   className={`absolute left-0 w-0.75 transition-all duration-300 ease-out rounded-full ${indicatorClassName}`}
                   style={{
@@ -113,7 +109,7 @@ export function OnThisPage({
                 {section.items.map((item, i) => {
                   const isActive = activeId === item.href.replace("#", "");
                   return (
-                    <li key={i}>
+                    <div key={i} className="pl-4">
                       {renderItem ? (
                         renderItem(item, isActive)
                       ) : (
@@ -132,10 +128,10 @@ export function OnThisPage({
                           {item.title}
                         </a>
                       )}
-                    </li>
+                    </div>
                   );
                 })}
-              </ol>
+              </div>
             )}
           </div>
         ))}
