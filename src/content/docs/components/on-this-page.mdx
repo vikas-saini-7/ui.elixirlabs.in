@@ -5,14 +5,14 @@ import CodeBlock from "../../views/CodeBlock";
 import DocsTabs from "../../views/DocsTabs";
 import manualCode from "@/registry/on-this-page.tsx?raw";
 
-export const componentToViewCode = `import { OnThisPage } from "@/registry/on-this-page";
+export const componentToViewCode = `import { OnThisPage } from "@/components/ui/on-this-page";
 
 <OnThisPage
   sections={[
     {
       items: [
         { title: "Introduction", href: "#introduction" },
-        { title: "information", href: "#unformation" },
+        { title: "information", href: "#information" },
         { title: "info", href: "#info" },
       ],
     },
@@ -29,7 +29,7 @@ export const componentToViewCode = `import { OnThisPage } from "@/registry/on-th
       {
         items: [
         { title: "Introduction", href: "#introduction" },
-        { title: "information", href: "#unformation" },
+        { title: "information", href: "#information" },
         { title: "info", href: "#info" },
       ],
       },
@@ -65,10 +65,10 @@ export const componentToViewCode = `import { OnThisPage } from "@/registry/on-th
 
 ## Usage
 
-Import the component and provide sections with items:
+Import the component from the components directory
 
 <CodeBlock 
-  code={`import { OnThisPage } from "@/registry/on-this-page";`}
+  code={`import { OnThisPage } from "@/components/ui/on-this-page";`}
   height="h-16"
 />
 
@@ -78,7 +78,7 @@ Import the component and provide sections with items:
     {
       items: [
         { title: "Introduction", href: "#introduction" },
-        { title: "information", href: "#unformation" },
+        { title: "information", href: "#information" },
         { title: "info", href: "#info" },
       ],
     },
