@@ -2,6 +2,7 @@
 import React from "react";
 import DocsAside from "@/components/docs/DocsAside";
 import PrevAndNext from "@/components/docs/PrevAndNext";
+import { docsNavigation } from "@/lib/docs-nav";
 
 interface DocsPageProps {
   params: Promise<{ slug: string }>;
@@ -40,12 +41,9 @@ export default async function Page({ params }: DocsPageProps) {
 }
 
 export function generateStaticParams() {
-  return [
-    { slug: "introduction" },
-    { slug: "getting-started" },
-    { slug: "installation" },
-    { slug: "releases" },
-  ];
+  return docsNavigation.overview.map((item) => ({
+    slug: item.href.split("/").pop() as string,
+  }));
 }
 
 export const dynamicParams = false;
