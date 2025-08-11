@@ -1,8 +1,11 @@
-{/* COMPONENT VIEW  */}
+{/* COMPONENT SECTION  */}
 import { OnThisPage } from "@/registry/on-this-page";
 import ComponentViewerBox from "../../views/ComponentViewerBox";
+import CodeBlock from "../../views/CodeBlock";
+import DocsTabs from "../../views/DocsTabs";
+import manualCode from "@/registry/on-this-page.tsx?raw";
 
-export const onThisPageCode = `import { OnThisPage } from "@/registry/on-this-page";
+export const componentToViewCode = `import { OnThisPage } from "@/registry/on-this-page";
 
 <OnThisPage
   sections={[
@@ -20,7 +23,7 @@ export const onThisPageCode = `import { OnThisPage } from "@/registry/on-this-pa
 />
 `;
 
-<ComponentViewerBox background={false} code={onThisPageCode}>
+<ComponentViewerBox background={false} code={componentToViewCode}>
   <OnThisPage
     sections={[
       {
@@ -37,23 +40,40 @@ export const onThisPageCode = `import { OnThisPage } from "@/registry/on-this-pa
   />
 </ComponentViewerBox>
 
-{/* EXPLANATION VIEW  */}
+{/* EXPLANATION SECTION  */}
 ## Installation
-```bash
-npx shadcn@latest add http://ui.elixirlabs.in/registry/on-this-page.json
-```
+
+<DocsTabs 
+  cliContent={
+    <div>
+      <CodeBlock language='html' code={`npx shadcn@latest add https://ui.elixirlabs.in/registry/on-this-page.json`} height="h-16" />
+    </div>
+  }
+  manualContent={
+    <div>
+      <p className="mb-4">
+        Copy and paste the following code into your project:
+      </p>
+      <CodeBlock language="tsx" code={manualCode || "// Component code not found"} />
+      <p className="text-sm text-gray-400 mt-4">
+        Make sure you have the required dependencies installed in your
+        project.
+      </p>
+    </div>
+  }
+/>
 
 ## Usage
 
 Import the component and provide sections with items:
 
-```tsx
-import { OnThisPage } from "@/registry/on-this-page";
-```
+<CodeBlock 
+  code={`import { OnThisPage } from "@/registry/on-this-page";`}
+  height="h-16"
+/>
 
-
-```tsx
-<OnThisPage
+<CodeBlock 
+  code={`<OnThisPage
   sections={[
     {
       items: [
@@ -63,5 +83,6 @@ import { OnThisPage } from "@/registry/on-this-page";
       ],
     },
   ]}
+/>`}
+  height="h-48"
 />
-```
