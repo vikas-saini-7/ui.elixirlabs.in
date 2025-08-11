@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import clsx from "clsx";
 
 interface DocsTabsProps {
-  cliContent:  React.ReactNode;
+  cliContent: React.ReactNode;
   manualContent: React.ReactNode;
 }
 
@@ -19,7 +19,7 @@ const DocsTabs = ({ cliContent, manualContent }: DocsTabsProps) => {
           className={clsx(
             "cursor-pointer py-2 px-4 text-sm font-medium transition-colors rounded-md",
             activeTab === "cli"
-              ? "bg-purple-500/50 text-white"
+              ? "bg-purple-500 text-black"
               : "text-gray-500 hover:text-gray-300"
           )}
         >
@@ -30,7 +30,7 @@ const DocsTabs = ({ cliContent, manualContent }: DocsTabsProps) => {
           className={clsx(
             "cursor-pointer py-2 px-4 text-sm font-medium transition-colors rounded-md",
             activeTab === "manual"
-              ? "bg-purple-500/50 text-white"
+              ? "bg-purple-500 text-black"
               : "text-gray-500 hover:text-gray-300"
           )}
         >

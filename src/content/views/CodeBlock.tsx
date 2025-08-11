@@ -28,7 +28,7 @@ const CodeBlock = ({
   code,
   language = "javascript",
   className,
-  height = "h-[420px]",
+  height = "",
 }: CodeBlockProps) => {
   const [copied, setCopied] = useState(false);
 
@@ -67,13 +67,13 @@ const CodeBlock = ({
     >
       <ScrollArea
         className={clsx(
-          height,
-          "w-full max-h-[450px] h-full py-[1px] rounded-lg relative"
+          "w-full rounded-lg relative overflow-hidden",
+          height || "max-h-[450px]"
         )}
       >
         <span
           className={clsx(
-            "absolute top-3 right-4 p-2 rounded cursor-pointer transition-colors z-10",
+            "absolute top-[10px] right-4 p-2 rounded cursor-pointer transition-colors z-10",
             copied
               ? "bg-green-500/20 text-green-400"
               : "bg-gray-500/20 hover:bg-gray-500/30"
@@ -81,9 +81,9 @@ const CodeBlock = ({
           onClick={copyToClipboard}
         >
           {copied ? (
-            <IconClipboardCheck size={18} />
+            <IconClipboardCheck size={16} />
           ) : (
-            <IconClipboard size={18} />
+            <IconClipboard size={16} />
           )}
         </span>
         <SyntaxHighlighter
@@ -93,8 +93,11 @@ const CodeBlock = ({
             background: "transparent",
             margin: 0,
             padding: "1rem",
+            // overflow: "auto",
+            maxWidth: "100%",
           }}
           wrapLongLines={true}
+          PreTag="div"
         >
           {code}
         </SyntaxHighlighter>
