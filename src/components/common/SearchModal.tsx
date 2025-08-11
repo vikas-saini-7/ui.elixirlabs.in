@@ -3,6 +3,7 @@ import { IconFile, IconSearch, IconX } from "@tabler/icons-react";
 import React, { useEffect, useState, useMemo } from "react";
 import { docsNavigation, NavItem } from "../../lib/docs-nav";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -10,6 +11,7 @@ interface SearchModalProps {
 }
 
 const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -58,7 +60,8 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
         case "Enter":
           e.preventDefault();
           if (filteredItems[selectedIndex]) {
-            window.location.href = filteredItems[selectedIndex].href;
+            router.push(`${filteredItems[selectedIndex].href}`);
+            // window.location.href = filteredItems[selectedIndex].href;
             onClose();
           }
           break;
@@ -70,7 +73,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, filteredItems, selectedIndex, onClose]);
+  }, [isOpen, filteredItems, selectedIndex, onClose, router]);
 
   // Reset selected index when query changes
   useEffect(() => {
@@ -109,14 +112,14 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
           />
           <button
             onClick={onClose}
-            className="p-2 text-gray-500 hover:text-gray-300 transition-colors rounded-md hover:bg-gray-800/30"
+            className="p-2 text-gray-500 hover:text-gray-300 transition-colors rounded-md hover:bg-gray-500/20 cursor-pointer"
           >
             <IconX size={16} />
           </button>
         </div>
 
         {/* Results */}
-        <div className="max-h-96 overflow-y-auto px-2">
+        <div className="max-h-96 overflow-y-auto px-3">
           {filteredItems.length > 0 ? (
             <div className="py-3 space-y-2">
               {filteredItems.map((item, index) => (

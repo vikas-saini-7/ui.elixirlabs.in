@@ -6,7 +6,6 @@ import {
   docsNavigation,
   type NavigationItem,
   type NavItem,
-  type NavGroup,
 } from "@/lib/docs-nav";
 
 interface PageProps {

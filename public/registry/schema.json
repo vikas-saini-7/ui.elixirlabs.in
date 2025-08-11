@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Registry Component",
+  "title": "ElixirLabs UI Registry Component",
+  "description": "Schema for ElixirLabs UI component registry",
   "type": "object",
   "properties": {
     "name": {
@@ -54,6 +55,38 @@
           "path",
           "content"
         ]
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "github": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "version": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     }
   },

@@ -1,20 +1,22 @@
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "name": "ui",
-  "description": "Component registry for UI components",
+  "$schema": "https://ui.elixirlabs.in/registry/schema.json",
+  "name": "ElixirLabs UI",
+  "description": "Modern React components built with Tailwind CSS",
+  "version": "1.0.0",
+  "author": {
+    "name": "ElixirLabs",
+    "url": "https://elixirlabs.in",
+    "github": "https://github.com/elixirlabs"
+  },
+  "license": "MIT",
   "url": "https://ui.elixirlabs.in/registry",
+  "homepage": "https://ui.elixirlabs.in",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elixirlabs/ui.git"
+  },
+  "generatedAt": "2025-08-11T08:28:30.855Z",
   "components": [
-    {
-      "name": "gaming-button",
-      "type": "registry:ui",
-      "description": "A gaming-button component",
-      "tags": [
-        "ui",
-        "component",
-        "button"
-      ],
-      "category": "ui"
-    },
     {
       "name": "on-this-page",
       "type": "registry:ui",
@@ -24,7 +26,9 @@
         "component",
         "form"
       ],
-      "category": "ui"
+      "category": "ui",
+      "author": "ElixirLabs",
+      "version": "1.0.0"
     }
   ]
 }

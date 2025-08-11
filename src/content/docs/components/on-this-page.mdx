@@ -1,0 +1,88 @@
+{/* COMPONENT SECTION  */}
+import { OnThisPage } from "@/registry/on-this-page";
+import ComponentViewerBox from "../../views/ComponentViewerBox";
+import CodeBlock from "../../views/CodeBlock";
+import DocsTabs from "../../views/DocsTabs";
+import manualCode from "@/registry/on-this-page.tsx?raw";
+
+export const componentToViewCode = `import { OnThisPage } from "@/registry/on-this-page";
+
+<OnThisPage
+  sections={[
+    {
+      items: [
+        { title: "Introduction", href: "#introduction" },
+        { title: "information", href: "#unformation" },
+        { title: "info", href: "#info" },
+      ],
+    },
+  ]}
+  activeClassName="text-purple-400"
+  inactiveClassName="text-neutral-500 hover:text-white"
+  indicatorClassName="bg-purple-500"
+/>
+`;
+
+<ComponentViewerBox background={false} code={componentToViewCode}>
+  <OnThisPage
+    sections={[
+      {
+        items: [
+        { title: "Introduction", href: "#introduction" },
+        { title: "information", href: "#unformation" },
+        { title: "info", href: "#info" },
+      ],
+      },
+    ]}
+    activeClassName="text-purple-400"
+    inactiveClassName="text-neutral-500 hover:text-white"
+    indicatorClassName="bg-purple-500"
+  />
+</ComponentViewerBox>
+
+{/* EXPLANATION SECTION  */}
+## Installation
+
+<DocsTabs 
+  cliContent={
+    <div>
+      <CodeBlock language='html' code={`npx shadcn@latest add https://ui.elixirlabs.in/registry/on-this-page.json`} height="h-16" />
+    </div>
+  }
+  manualContent={
+    <div>
+      <p className="mb-4">
+        Copy and paste the following code into your project:
+      </p>
+      <CodeBlock language="tsx" code={manualCode || "// Component code not found"} />
+      <p className="text-sm text-gray-400 mt-4">
+        Make sure you have the required dependencies installed in your
+        project.
+      </p>
+    </div>
+  }
+/>
+
+## Usage
+
+Import the component and provide sections with items:
+
+<CodeBlock 
+  code={`import { OnThisPage } from "@/registry/on-this-page";`}
+  height="h-16"
+/>
+
+<CodeBlock 
+  code={`<OnThisPage
+  sections={[
+    {
+      items: [
+        { title: "Introduction", href: "#introduction" },
+        { title: "information", href: "#unformation" },
+        { title: "info", href: "#info" },
+      ],
+    },
+  ]}
+/>`}
+  height="h-48"
+/>

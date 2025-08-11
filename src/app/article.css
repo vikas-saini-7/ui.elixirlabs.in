@@ -74,14 +74,15 @@ article blockquote {
 
 /* Code blocks */
 article pre {
-  background-color: #171717; /* light gray for code block bg */
+  /* background-color: #171717; */
   padding: 1rem 1.25rem;
   border-radius: 6px;
   overflow-x: auto;
   font-family: "Fira Code", monospace, monospace;
   font-size: 0.95rem;
-  margin: 1.5rem 0;
-  line-height: 1.4;
+  /* margin: 1.5rem 0; */
+  /* line-height: 1.4; */
+  /* margin-bottom: 1.5rem; */
 }
 
 article pre code {

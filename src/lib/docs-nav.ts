@@ -18,8 +18,9 @@ export const docsNavigation = {
     { label: "Releases", href: "/docs/overview/releases" },
   ] as NavItem[],
   components: [
-    { label: "Alert", href: "/docs/components/alert" },
-    { label: "Button", href: "/docs/components/button" },
+    { label: "On This Page", href: "/docs/components/on-this-page" },
+    // { label: "Alert", href: "/docs/components/alert" },
+    // { label: "Button", href: "/docs/components/button" },
     // {
     //   label: "Forms",
     //   items: [

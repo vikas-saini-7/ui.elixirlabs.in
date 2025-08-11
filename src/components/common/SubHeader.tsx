@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import {
   IconBox,
   IconBrandSketch,
@@ -7,19 +8,19 @@ import {
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import { docsNavigation, NavItem } from "@/lib/docs-nav";
 
 const navigations = [
   {
     icon: <IconRocket size={18} />,
     label: "Overview",
-    href: "/docs/overview/introduction",
+    href: docsNavigation.overview[0].href,
     match: "/docs/overview",
   },
   {
     icon: <IconBox size={18} />,
     label: "Components",
-    href: "/docs/components/alert",
+    href: (docsNavigation.components[0] as NavItem).href,
     match: "/docs/components",
   },
   {
@@ -35,7 +36,7 @@ const SubHeader = () => {
   if (pathname === "/") return null;
 
   return (
-    <div className="container mx-auto px-4 h-[48px] flex items-center justify-between border-b border-dashed text-white/70 sticky top-0 backdrop-blur-md">
+    <div className="container mx-auto px-4 h-[48px] flex items-center justify-between border-b border-dashed text-white/70 sticky top-0 backdrop-blur-md z-50">
       <div>
         <ul className="flex items-center gap-8 text-sm">
           {navigations.map((item, idx) => {
@@ -71,9 +72,10 @@ const SubHeader = () => {
       </div>
       <div>
         <ul className="flex items-center gap-4">
-          <Link href="/premium-plans">
+          <Link href="https://pro.elixirlabs.in" target="_blank">
             <li className="flex items-center gap-1 bg-gradient-to-tr from-yellow-700 to-yellow-500 hover:from-yellow-600 hover:to-yellow-400 text-black px-2 py-1 rounded">
-              <IconBrandSketch size={18} /> Access Premium
+              <IconBrandSketch size={18} />
+              Get Premium
             </li>
           </Link>
         </ul>

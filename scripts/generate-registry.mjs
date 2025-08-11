@@ -5,11 +5,36 @@ import prettier from "prettier";
 const SRC_DIR = path.join(process.cwd(), "src", "registry");
 const OUT_DIR = path.join(process.cwd(), "public", "registry");
 
+// Author and project metadata
+const AUTHOR_INFO = {
+  name: "ElixirLabs",
+  url: "https://elixirlabs.in",
+  github: "https://github.com/elixirlabs",
+};
+
+const PROJECT_INFO = {
+  name: "ElixirLabs UI",
+  version: "1.0.0",
+  description: "Modern React components built with Tailwind CSS",
+  license: "MIT",
+};
+
 function toKebabCase(str) {
   return str
     .replace(/([a-z])([A-Z])/g, "$1-$2")
     .replace(/\s+/g, "-")
     .toLowerCase();
+}
+
+// Clean and recreate registry directory
+function cleanRegistryDir() {
+  if (fs.existsSync(OUT_DIR)) {
+    console.log("🧹 Cleaning existing registry...");
+    fs.rmSync(OUT_DIR, { recursive: true, force: true });
+  }
+  fs.mkdirSync(OUT_DIR, { recursive: true });
+  console.log("📁 Generating registry...");
+  console.log("------------------------");
 }
 
 // Extract dependencies from import statements
@@ -53,9 +78,8 @@ function extractMetadata(content, filename) {
 }
 
 async function generate() {
-  if (!fs.existsSync(OUT_DIR)) {
-    fs.mkdirSync(OUT_DIR, { recursive: true });
-  }
+  // Clean registry directory first
+  cleanRegistryDir();
 
   const prettierConfig = (await prettier.resolveConfig(process.cwd())) || {};
   const files = fs.readdirSync(SRC_DIR).filter((f) => f.endsWith(".tsx"));
@@ -71,7 +95,7 @@ async function generate() {
         parser: "typescript",
       });
     } catch (err) {
-      console.warn(`⚠️ Prettier failed on ${file}, using raw content.`);
+      console.warn(`⚠️ Prettier failed on ${file}, using raw content.`, err);
     }
 
     const name = toKebabCase(file.replace(".tsx", ""));
@@ -105,9 +129,13 @@ async function generate() {
         category: tags[0] || "ui",
         subcategory: tags.length > 1 ? tags[1] : null,
         tags,
+        author: AUTHOR_INFO,
+        version: PROJECT_INFO.version,
+        license: PROJECT_INFO.license,
+        createdAt: new Date().toISOString(),
       },
-      docs: `https://ui.shadcn.com/docs/components/${name}`,
-      source: `https://github.com/shadcn/ui/tree/main/apps/www/registry/registry-ui/${name}.tsx`,
+      docs: `https://ui.elixirlabs.in/docs/components/${name}`,
+      source: `https://github.com/elixirlabs/ui/tree/main/src/registry/${file}`,
     };
 
     // Write individual component file
@@ -123,6 +151,8 @@ async function generate() {
       description,
       tags,
       category: tags[0] || "ui",
+      author: AUTHOR_INFO.name,
+      version: PROJECT_INFO.version,
     });
 
     console.log(`✅ Generated ${name}.json`);
@@ -130,10 +160,19 @@ async function generate() {
 
   // Generate index.json with all components
   const indexData = {
-    $schema: "https://ui.shadcn.com/schema.json",
-    name: "ui",
-    description: "Component registry for UI components",
+    $schema: "https://ui.elixirlabs.in/registry/schema.json",
+    name: PROJECT_INFO.name,
+    description: PROJECT_INFO.description,
+    version: PROJECT_INFO.version,
+    author: AUTHOR_INFO,
+    license: PROJECT_INFO.license,
     url: "https://ui.elixirlabs.in/registry",
+    homepage: "https://ui.elixirlabs.in",
+    repository: {
+      type: "git",
+      url: "https://github.com/elixirlabs/ui.git",
+    },
+    generatedAt: new Date().toISOString(),
     components: registry.sort((a, b) => a.name.localeCompare(b.name)),
   };
 
@@ -146,7 +185,8 @@ async function generate() {
   // Generate schema.json for validation
   const schema = {
     $schema: "http://json-schema.org/draft-07/schema#",
-    title: "Registry Component",
+    title: "ElixirLabs UI Registry Component",
+    description: "Schema for ElixirLabs UI component registry",
     type: "object",
     properties: {
       name: { type: "string" },
@@ -170,6 +210,23 @@ async function generate() {
           required: ["path", "content"],
         },
       },
+      meta: {
+        type: "object",
+        properties: {
+          author: {
+            type: "object",
+            properties: {
+              name: { type: "string" },
+              url: { type: "string" },
+              github: { type: "string" },
+            },
+            required: ["name"],
+          },
+          version: { type: "string" },
+          license: { type: "string" },
+          createdAt: { type: "string", format: "date-time" },
+        },
+      },
     },
     required: ["name", "type", "files"],
   };
@@ -180,8 +237,8 @@ async function generate() {
     "utf8"
   );
 
+  console.log("------------------------");
   console.log(`🎉 Generated registry with ${files.length} components`);
-  // console.log(`📁 Registry available at: ${OUT_DIR}`);
 }
 
 generate().catch(console.error);

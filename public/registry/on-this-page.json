@@ -30,8 +30,16 @@
       "ui",
       "component",
       "form"
-    ]
+    ],
+    "author": {
+      "name": "ElixirLabs",
+      "url": "https://elixirlabs.in",
+      "github": "https://github.com/elixirlabs"
+    },
+    "version": "1.0.0",
+    "license": "MIT",
+    "createdAt": "2025-08-11T08:28:30.854Z"
   },
-  "docs": "https://ui.shadcn.com/docs/components/on-this-page",
-  "source": "https://github.com/shadcn/ui/tree/main/apps/www/registry/registry-ui/on-this-page.tsx"
+  "docs": "https://ui.elixirlabs.in/docs/components/on-this-page",
+  "source": "https://github.com/elixirlabs/ui/tree/main/src/registry/on-this-page.tsx"
 }
