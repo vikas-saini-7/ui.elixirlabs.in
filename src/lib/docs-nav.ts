@@ -20,12 +20,12 @@ export const docsNavigation = {
   components: [
     { label: "Alert", href: "/docs/components/alert" },
     { label: "Button", href: "/docs/components/button" },
-    {
-      label: "Forms",
-      items: [
-        { label: "Input", href: "/docs/components/input" },
-        { label: "Select", href: "/docs/components/select" },
-      ],
-    },
+    // {
+    //   label: "Forms",
+    //   items: [
+    //     { label: "Input", href: "/docs/components/input" },
+    //     { label: "Select", href: "/docs/components/select" },
+    //   ],
+    // },
   ] as NavigationItem[],
 };
