@@ -37,7 +37,7 @@ export default function RootLayout({
         <Header />
         <SubHeader />
 
-        <main className="container mx-auto px-4 min-h-[80vh]">
+        <main className="container mx-auto min-h-[80vh]">
           {children}
         </main>
         <Footer />
