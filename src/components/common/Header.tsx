@@ -5,6 +5,7 @@ import SearchComponent from "@/components/common/SearchComponent";
 import ThemeSwitch from "@/components/common/ThemeSwitch";
 import HeaderSocials from "@/components/common/HeaderSocials";
 import Link from "next/link";
+import { docsNavigation, NavItem } from "@/lib/docs-nav";
 
 const mainNavigations = [
   {
@@ -12,8 +13,8 @@ const mainNavigations = [
     href: "/docs/overview/introduction",
   },
   {
-    label: "Examples",
-    href: "/examples",
+    label: "Components",
+    href: (docsNavigation.components[0] as NavItem).href,
   },
   {
     label: "Showcase",

@@ -22,7 +22,7 @@ export default async function Page({ params }: PageProps) {
   );
 
   return (
-    <div className="flex">
+    <div className="flex py-4">
       <div className="w-4/5 px-24">
         <div className="mb-6">
           <h2 className="text-purple-500 font-bold my-2 mt-4 text-sm">

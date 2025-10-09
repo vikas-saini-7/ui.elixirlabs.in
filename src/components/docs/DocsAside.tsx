@@ -10,7 +10,7 @@ const DocsAside = ({ slug }: DocsAsideProps) => {
   const headings = getMdxHeadings(`${slug}`);
   const sections = [{ items: headings }];
   return (
-    <div className="min-h-[80vh] sticky top-16">
+    <div className="min-h-[80vh] sticky top-16 py-2">
       <div className="">
         <OnThisPage sections={sections} />
         <div className="mt-4">

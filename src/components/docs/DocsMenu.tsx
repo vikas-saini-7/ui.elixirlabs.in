@@ -27,7 +27,7 @@ const DocsMenu = () => {
   };
 
   return (
-    <div className="min-h-[80vh] space-y-4">
+    <div className="min-h-[80vh] h-full space-y-4 border-r border-dashed py-4">
       <ul className="space-y-1">
         {currentNavigation.map((item, idx) => {
           // Accordion group
@@ -60,7 +60,7 @@ const DocsMenu = () => {
                         <li
                           className={`px-2 py-2 rounded cursor-pointer text-sm transition-colors ${
                             isActive
-                              ? "bg-purple-500/10 text-purple-500 font-bold"
+                              ? " text-purple-500 font-bold"
                               : "text-neutral-300 hover:text-white"
                           }`}
                         >
@@ -81,7 +81,7 @@ const DocsMenu = () => {
               <li
                 className={`px-4 py-2 rounded cursor-pointer text-sm transition-colors ${
                   isActive
-                    ? "bg-purple-500/10 text-purple-500 font-bold"
+                    ? " text-purple-500 font-bold"
                     : "text-neutral-300 hover:text-white"
                 }`}
               >

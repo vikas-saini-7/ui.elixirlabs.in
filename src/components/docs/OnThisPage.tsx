@@ -94,7 +94,7 @@ export default function OnThisPage({ sections }: { sections: Section[] }) {
 
   return (
     <div className="hidden lg:block w-64 text-neutral-300">
-      <h2 className="mb-3 text-sm font-semibold text-white capitalize">
+      <h2 className="mb-3 text-xs text-white/50 capitalize">
         On this page
       </h2>
       <nav className="space-y-4">

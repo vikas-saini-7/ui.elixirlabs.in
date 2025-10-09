@@ -44,11 +44,12 @@ article p {
 /* Links */
 article a {
   text-decoration: none;
-  border-bottom: 1.5px solid currentColor;
+  /* border-bottom: 1.5px solid currentColor; */
   transition: border-color 0.3s ease;
 }
 
 article a:hover {
+  border-bottom: 1.5px solid currentColor;
   border-color: inherit;
 }
 
