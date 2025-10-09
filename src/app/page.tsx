@@ -27,7 +27,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="font-heading text-4xl font-bold mb-4">
               Key Features of <span className="text-purple-500">Elixir UI</span>
-              ?
+              
             </h2>
             <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
               Built for developers who want to ship beautiful products without
@@ -171,7 +171,7 @@ export default function Home() {
 
           <div className="text-center">
             <Link href="/docs/components/on-this-page">
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="cursor-pointer">
                 View All Components
                 <IconArrowRight size={20} />
               </Button>
@@ -425,18 +425,22 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Link href="/docs/overview/getting-started">
+            <Link href="/docs/overview/installation">
               <Button
                 size="lg"
-                className="bg-purple-500 hover:bg-purple-600 text-white px-12"
+                className="bg-purple-500 hover:bg-purple-600 text-black cursor-pointer px-12"
               >
-                <IconDownload size={20} />
-                Get Started for Free
+                Get Started for free
+                <IconArrowRight size={20} />
               </Button>
             </Link>
 
             <Link href="/docs/components/on-this-page">
-              <Button variant="outline" size="lg" className="px-12">
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-12 cursor-pointer"
+              >
                 Browse Components
                 <IconArrowRight size={20} />
               </Button>

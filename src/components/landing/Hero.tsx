@@ -65,7 +65,7 @@ const Hero = () => {
             <Link href="/docs/overview/installation">
               <Button
                 size="lg"
-                className="bg-purple-500 hover:bg-purple-600 text-white px-8"
+                className="bg-purple-500 hover:bg-purple-600 text-black cursor-pointer px-8"
               >
                 Getting Started
                 <IconArrowRight size={20} />
@@ -73,7 +73,7 @@ const Hero = () => {
             </Link>
 
             <Link href="https://github.com" target="_blank">
-              <Button variant="outline" size="lg" className="px-8">
+              <Button variant="outline" size="lg" className="px-8 cursor-pointer">
                 <IconBrandGithub size={20} />
                 Star on GitHub
               </Button>
