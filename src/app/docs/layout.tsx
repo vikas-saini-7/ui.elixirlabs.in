@@ -7,7 +7,7 @@ export default function OverviewLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex">
+    <div className="flex pr-4">
       <div className="w-1/6">
         <DocsMenu />
       </div>
