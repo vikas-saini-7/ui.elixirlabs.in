@@ -1,0 +1,51 @@
+{
+    "name": "header",
+    "type": "registry:ui",
+    "description": "Modern header component with sticky, floating, and transparent variants. Supports logo, navigation links, and CTA buttons.",
+    "category": "headers",
+    "subcategory": "navigation",
+    "tags": [
+        "header",
+        "navigation",
+        "navbar",
+        "sticky",
+        "floating"
+    ],
+    "files": [
+        {
+            "path": "components/ui/header.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/header.tsx"
+        }
+    ],
+    "dependencies": [
+        "react",
+        "next"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tailwind": {
+        "config": {
+            "theme": {
+                "extend": {}
+            }
+        }
+    },
+    "cssVars": {},
+    "meta": {
+        "version": "1.0.0",
+        "status": "stable",
+        "accessibility": [
+            "keyboard-navigation",
+            "focus-visible",
+            "aria-labels"
+        ],
+        "hasDocumentation": false,
+        "hasTests": false,
+        "hasExamples": false,
+        "author": {
+            "name": "ElixirLabs",
+            "url": "https://elixirlabs.in"
+        }
+    }
+}

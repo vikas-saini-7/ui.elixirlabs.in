@@ -1,0 +1,45 @@
+{
+    "name": "ElixirLabs UI",
+    "version": "1.0.0",
+    "description": "Modern React components built with Tailwind CSS",
+    "author": {
+        "name": "ElixirLabs",
+        "url": "https://elixirlabs.in",
+        "github": "https://github.com/elixirlabs"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/elixirlabs/ui.git"
+    },
+    "registry": {
+        "url": "https://ui.elixirlabs.in/r",
+        "schemas": "https://ui.elixirlabs.in/r/schema.json"
+    },
+    "categories": {
+        "headers": {
+            "label": "Headers & Navigation",
+            "description": "Modern headers with sticky, floating, and transparent variants"
+        },
+        "footers": {
+            "label": "Footers",
+            "description": "Footer components with newsletter, social links, and multi-column layouts"
+        },
+        "cards": {
+            "label": "Cards",
+            "description": "Product cards, blog cards, feature cards, and more"
+        },
+        "sections": {
+            "label": "Sections",
+            "description": "Hero sections, CTA sections, feature sections, testimonials"
+        },
+        "utility": {
+            "label": "Utilities",
+            "description": "Helper components and utility functions"
+        }
+    },
+    "baseStyles": {
+        "css": "src/app/globals.css",
+        "tailwind": "tailwind.config.ts"
+    }
+}

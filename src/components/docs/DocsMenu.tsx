@@ -2,71 +2,47 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
-import { docsNavigation } from "@/lib/docs-nav";
-import { IconChevronDown } from "@tabler/icons-react";
+import type { NavigationItem } from "@/lib/get-navigation";
 
-const DocsMenu = () => {
+interface DocsMenuProps {
+  navigation: NavigationItem[];
+}
+
+export default function DocsMenu({ navigation }: DocsMenuProps) {
   const pathname = usePathname();
-  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
-
-  const isOverviewPage = pathname.startsWith("/docs/overview");
-  const isComponentPage = pathname.startsWith("/docs/components");
-
-  const currentNavigation = isOverviewPage
-    ? docsNavigation.overview
-    : isComponentPage
-    ? docsNavigation.components
-    : [];
-
-  const toggleGroup = (label: string) => {
-    setOpenGroups((prev) => ({
-      ...prev,
-      [label]: !prev[label],
-    }));
-  };
 
   return (
-    <div className="min-h-[80vh] h-full space-y-4 border-r border-dashed py-4">
-      <ul className="space-y-1">
-        {currentNavigation.map((item, idx) => {
-          // Accordion group
+    <div className="min-h-[80vh] h-full space-y-6 border-r border-dashed py-4">
+      <ul className="space-y-6">
+        {navigation.map((item, idx) => {
+          // Group with items (no collapse, always visible)
           if ("items" in item) {
-            const isOpen = openGroups[item.label] ?? true;
             return (
               <li key={idx}>
-                <button
-                  onClick={() => toggleGroup(item.label)}
-                  className="w-full flex items-center justify-between px-4 py-2 text-xs uppercase tracking-wider text-neutral-500 hover:text-white transition-colors"
-                >
-                  {item.label}
-                  <IconChevronDown
-                    size={16}
-                    className={`transition-transform ${
-                      isOpen ? "rotate-180" : "rotate-0"
-                    }`}
-                  />
-                </button>
+                {/* Category heading - very small and faint, no hover effect */}
+                <div className="px-4 mb-2">
+                  <span className="text-[10px] uppercase tracking-wider text-neutral-500 font-medium">
+                    {item.label}
+                  </span>
+                </div>
 
-                <ul
-                  className={`ml-2 overflow-hidden transition-all duration-300 ${
-                    isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                >
+                {/* Component links - always visible */}
+                <ul className="space-y-0.5">
                   {item?.items?.map((subItem, subIdx) => {
                     const isActive = pathname === subItem.href;
                     return (
-                      <Link href={subItem.href} key={subIdx}>
-                        <li
-                          className={`px-2 py-2 rounded cursor-pointer text-sm transition-colors ${
+                      <li key={subIdx}>
+                        <Link 
+                          href={subItem.href}
+                          className={`block px-4 py-1.5 cursor-pointer transition-colors text-sm ${
                             isActive
-                              ? " text-purple-500 font-bold"
-                              : "text-neutral-300 hover:text-white"
+                              ? "text-white font-medium"
+                              : "text-neutral-400 hover:text-white"
                           }`}
                         >
                           {subItem.label}
-                        </li>
-                      </Link>
+                        </Link>
+                      </li>
                     );
                   })}
                 </ul>
@@ -77,22 +53,21 @@ const DocsMenu = () => {
           // Regular single link
           const isActive = pathname === item.href;
           return (
-            <Link href={item.href} key={idx}>
-              <li
-                className={`px-4 py-2 rounded cursor-pointer text-sm transition-colors ${
+            <li key={idx}>
+              <Link 
+                href={item.href}
+                className={`block px-4 py-1.5 cursor-pointer transition-colors text-sm ${
                   isActive
-                    ? " text-purple-500 font-bold"
-                    : "text-neutral-300 hover:text-white"
+                    ? "text-white font-medium"
+                    : "text-neutral-400 hover:text-white"
                 }`}
               >
                 {item.label}
-              </li>
-            </Link>
+              </Link>
+            </li>
           );
         })}
       </ul>
     </div>
   );
-};
-
-export default DocsMenu;
+}

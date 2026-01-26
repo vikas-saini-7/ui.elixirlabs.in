@@ -55,13 +55,14 @@ const ComponentViewerBox = ({
       {activeTab === "preview" ? (
         <div
           className={clsx(
-            "component-viewer h-[420px] flex items-center rounded-lg border border-dashed border-gray-500/20",
+            "component-viewer min-h-[420px] flex rounded-lg border border-dashed border-gray-500/20",
             background && "bg-gray-500/10",
-            center && "flex items-center justify-center",
+            center && "items-center justify-center p-8",
+            !center && "items-start",
             className
           )}
         >
-          <div className="p-8">{children}</div>
+          {children}
         </div>
       ) : (
         <CodeBlock code={code || ""} />

@@ -1,0 +1,208 @@
+import { Footer } from "@/components/ui/footer";
+import ComponentViewerBox from "../../views/ComponentViewerBox";
+import CodeBlock from "../../views/CodeBlock";
+import DocsTabs from "../../views/DocsTabs";
+import { loadRawFile } from "@/lib/loadRawFile";
+
+export const componentRawCode = loadRawFile("registry/components/footer/component.tsx");
+
+export const basicExample = `import { Footer } from "@/components/ui/footer";
+
+<Footer
+  logo="YourBrand"
+  copyright="© 2026 YourBrand. All rights reserved."
+  socialLinks={[
+    { name: "Twitter", href: "#" },
+    { name: "GitHub", href: "#" }
+  ]}
+/>`;
+
+<ComponentViewerBox background={false} code={basicExample}>
+  <div className="w-full">
+    <Footer
+      logo="YourBrand"
+      copyright="© 2026 YourBrand. All rights reserved."
+      socialLinks={[
+        { name: "Twitter", href: "#" },
+        { name: "GitHub", href: "#" }
+      ]}
+    />
+  </div>
+</ComponentViewerBox>
+
+## Installation
+
+<DocsTabs 
+  cliContent={
+    <div>
+      <CodeBlock language='bash' code={`npx shadcn@latest add https://ui.elixirlabs.in/r/footer.json`} />
+    </div>
+  }
+  manualContent={
+    <div>
+      <p className="mb-4">
+        Copy and paste the following code into your project:
+      </p>
+      <CodeBlock language="tsx" code={componentRawCode || "// Component code not found"} />
+    </div>
+  }
+/>
+
+## Variants
+
+### Simple Footer
+
+Basic footer with logo and social links.
+
+<CodeBlock code={`<Footer
+  variant="simple"
+  logo="Brand"
+  socialLinks={[
+    { name: "Twitter", href: "#" },
+    { name: "GitHub", href: "#" }
+  ]}
+/>`} />
+
+### Multi-Column Footer
+
+Footer with multiple navigation sections.
+
+<CodeBlock code={`<Footer
+  variant="multi-column"
+  logo="Brand"
+  sections={[
+    {
+      title: "Product",
+      links: [
+        { label: "Features", href: "/features" },
+        { label: "Pricing", href: "/pricing" }
+      ]
+    },
+    {
+      title: "Company",
+      links: [
+        { label: "About", href: "/about" },
+        { label: "Blog", href: "/blog" }
+      ]
+    }
+  ]}
+/>`} />
+
+### With Newsletter
+
+Footer with newsletter signup form.
+
+<CodeBlock code={`<Footer
+  variant="with-newsletter"
+  logo="Brand"
+  newsletterForm={
+    <form className="flex gap-2">
+      <input 
+        type="email" 
+        placeholder="Enter your email"
+        className="px-4 py-2 rounded-md border"
+      />
+      <button className="px-4 py-2 bg-purple-500 text-white rounded-md">
+        Subscribe
+      </button>
+    </form>
+  }
+/>`} />
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| logo | ReactNode \| string | "Logo" | Logo or brand name |
+| sections | FooterSection[] | [] | Navigation sections for multi-column |
+| socialLinks | SocialLink[] | [] | Social media links |
+| copyright | string | auto | Copyright text |
+| variant | "simple" \| "with-newsletter" \| "multi-column" | "simple" | Footer layout variant |
+| newsletterForm | ReactNode | - | Newsletter form component |
+
+## Interfaces
+
+```tsx
+interface FooterSection {
+  title: string;
+  links: FooterLink[];
+}
+
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+interface SocialLink {
+  name: string;
+  href: string;
+  icon?: ReactNode;
+}
+```
+
+## Examples
+
+### Full Multi-Column Footer
+
+<CodeBlock code={`<Footer
+  variant="multi-column"
+  logo="YourBrand"
+  sections={[
+    {
+      title: "Product",
+      links: [
+        { label: "Features", href: "/features" },
+        { label: "Pricing", href: "/pricing" },
+        { label: "Updates", href: "/updates" }
+      ]
+    },
+    {
+      title: "Resources",
+      links: [
+        { label: "Documentation", href: "/docs" },
+        { label: "Guides", href: "/guides" },
+        { label: "API", href: "/api" }
+      ]
+    },
+    {
+      title: "Company",
+      links: [
+        { label: "About", href: "/about" },
+        { label: "Blog", href: "/blog" },
+        { label: "Careers", href: "/careers" }
+      ]
+    }
+  ]}
+  socialLinks={[
+    { name: "Twitter", href: "#" },
+    { name: "GitHub", href: "#" },
+    { name: "LinkedIn", href: "#" }
+  ]}
+  copyright="© 2026 YourBrand. All rights reserved."
+/>`} />
+
+### With Custom Social Icons
+
+<CodeBlock code={`<Footer
+  variant="simple"
+  socialLinks={[
+    { 
+      name: "Twitter",
+      href: "#",
+      icon: <TwitterIcon />
+    },
+    { 
+      name: "GitHub",
+      href: "#",
+      icon: <GitHubIcon />
+    }
+  ]}
+/>`} />
+
+## Accessibility
+
+- Semantic `<footer>` element
+- Keyboard navigation for all links
+- Proper link contrast ratios
+- Screen reader friendly
+- External links properly labeled

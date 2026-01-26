@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "npm run build:registry && next build",
     "start": "next start",
     "lint": "next lint",
+    "build:registry": "node scripts/build-registry.mjs",
+    "validate:registry": "node scripts/validate-registry.mjs",
+    "new:component": "node scripts/new-component.mjs",
+    "registry:watch": "nodemon --watch registry -e tsx,json --exec npm run build:registry",
     "generate:registry": "node scripts/generate-registry.mjs"
   },
   "dependencies": {
@@ -30,12 +34,14 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@inquirer/prompts": "^7.10.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
+    "nodemon": "^3.1.11",
     "prettier": "^3.6.2",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.6",

@@ -1,0 +1,84 @@
+name: Build Registry
+
+on:
+  push:
+    paths:
+      - 'registry/**'
+      - 'scripts/**'
+    branches:
+      - main
+      - dev
+  pull_request:
+    paths:
+      - 'registry/**'
+      - 'scripts/**'
+
+jobs:
+  validate:
+    name: Validate Registry
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Validate registry
+        run: npm run validate:registry
+  
+  build:
+    name: Build Registry
+    needs: validate
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build registry
+        run: npm run build:registry
+      
+      - name: Upload registry artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: registry
+          path: public/r/
+          retention-days: 30
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [ -n "$(git status --porcelain public/r/)" ]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Comment on PR
+        if: github.event_name == 'pull_request' && steps.check_changes.outputs.changes == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ Registry built successfully! The changes have been validated.'
+            })

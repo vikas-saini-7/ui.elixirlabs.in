@@ -1,0 +1,48 @@
+{
+    "name": "on-this-page",
+    "type": "registry:ui",
+    "description": "A navigation component that displays a table of contents with smooth scrolling and active state tracking",
+    "category": "navigation",
+    "subcategory": "table-of-contents",
+    "tags": [
+        "navigation",
+        "toc",
+        "scroll",
+        "sidebar"
+    ],
+    "files": [
+        {
+            "path": "components/ui/on-this-page.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/on-this-page.tsx"
+        }
+    ],
+    "dependencies": [
+        "react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tailwind": {
+        "config": {
+            "theme": {
+                "extend": {}
+            }
+        }
+    },
+    "cssVars": {},
+    "meta": {
+        "version": "1.0.0",
+        "status": "stable",
+        "accessibility": [
+            "keyboard-navigation",
+            "screen-reader"
+        ],
+        "hasDocumentation": true,
+        "hasTests": false,
+        "hasExamples": true,
+        "author": {
+            "name": "ElixirLabs",
+            "url": "https://elixirlabs.in"
+        }
+    }
+}

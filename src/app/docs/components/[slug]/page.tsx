@@ -2,11 +2,6 @@
 import React from "react";
 import DocsAside from "@/components/docs/DocsAside";
 import PrevAndNext from "@/components/docs/PrevAndNext";
-import {
-  docsNavigation,
-  type NavigationItem,
-  type NavItem,
-} from "@/lib/docs-nav";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -44,22 +39,20 @@ export default async function Page({ params }: PageProps) {
   );
 }
 
-export function generateStaticParams() {
-  const slugs: string[] = [];
-
-  docsNavigation.components.forEach((item: NavigationItem) => {
-    if ("href" in item) {
-      // This is a NavItem
-      slugs.push(item.href.split("/").pop() as string);
-    } else if ("items" in item) {
-      // This is a NavGroup
-      item.items.forEach((subItem: NavItem) => {
-        slugs.push(subItem.href.split("/").pop() as string);
-      });
-    }
-  });
-
-  return slugs.map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  // Import fs to read the actual MDX files
+  const fs = await import("fs");
+  const path = await import("path");
+  
+  const componentsDir = path.join(process.cwd(), "src/content/docs/components");
+  
+  // Read all MDX files in the components directory
+  const files = fs.readdirSync(componentsDir);
+  const mdxFiles = files.filter((file) => file.endsWith(".mdx"));
+  
+  return mdxFiles.map((file) => ({
+    slug: file.replace(".mdx", ""),
+  }));
 }
 
 export const dynamicParams = false;

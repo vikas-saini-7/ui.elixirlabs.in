@@ -1,16 +1,19 @@
 import CodeBlock from '../../views/CodeBlock'
 
-How to install dependencies and structure your app.
 
-<div class="px-6  py-1 border-l-4 border-purple-500 bg-blue-50 dark:bg-blue-950/10 dark:border-purple-400">
+<div class="px-6 py-4 border-l-4 border-purple-500 bg-blue-50 dark:bg-blue-950/10 dark:border-purple-400 rounded-r-lg">
   <p class="text-sm text-purple-800 dark:text-purple-200">
-    <strong>Note:</strong> We have the exact same installation process as shadcn/ui.
+    <strong>Quick Start:</strong> Elixir UI follows the same installation process as shadcn/ui. If you're already using shadcn, you're all set!
   </p>
 </div>
 
 ---
 
-<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+## Choose Your Framework
+
+Select your preferred framework for detailed installation instructions:
+
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 mt-6">
   <a href="https://ui.shadcn.com/docs/installation/next" target="_blank" rel="noopener noreferrer" className="p-4 border rounded-lg text-center hover:shadow-md block hover:scale-105 transition-all duration-200">
     <svg className="w-8 h-8 mx-auto mb-2" viewBox="0 0 24 24" fill="#2B7FFF">
       <path d="M11.5725 0c-.1763 0-.3098.0013-.3584.0067-.0516.0053-.2159.021-.3636.0328-3.4088.3073-6.6017 2.1463-8.624 4.9728C1.1004 6.584.3802 8.3666.1082 10.255c-.0962.659-.108.8537-.108 1.7474s.012 1.0884.108 1.7476c.652 4.506 3.8591 8.2919 8.2087 9.6945.7789.2511 1.6.4223 2.5337.5255.3636.04 1.9354.04 2.299 0 1.6117-.1783 2.9772-.577 4.3237-1.2643.2065-.1056.2464-.1337.2183-.1573-.0188-.0139-.8987-1.1938-1.9543-2.62l-1.919-2.592-2.4047-3.5583c-1.3231-1.9564-2.4117-3.556-2.4211-3.556-.0094-.0026-.0187 1.5787-.0235 3.509-.0067 3.3802-.0093 3.5162-.0516 3.596-.061.115-.108.1618-.2064.2134-.075.0374-.1408.0445-.495.0445h-.406l-.1078-.068a.4383.4383 0 01-.1572-.1712l-.0493-.1056.0053-4.703.0067-4.7054.0726-.0915c.0376-.0493.1174-.1125.1736-.143.0962-.047.1338-.0517.5396-.0517.4787 0 .5584.0187.6827.1547.0353.0377 1.3373 1.9987 2.895 4.3608a10760.433 10760.433 0 004.7344 7.1706l1.9002 2.8782.096-.0633c.8518-.5536 1.7525-1.3418 2.4657-2.1627 1.5179-1.7429 2.4963-3.868 2.8247-6.134.0961-.6591.1078-.854.1078-1.7475 0-.8937-.012-1.0884-.1078-1.7476-.6522-4.506-3.8592-8.2919-8.2087-9.6945-.7672-.2487-1.5836-.42-2.4985-.5232-.169-.0176-1.0835-.0366-1.6123-.037zm4.0685 7.217c.3473 0 .4082.0053.4857.047.1127.0562.204.1642.237.2767.0186.061.0234 1.3653.0186 4.3044l-.0067 4.2175-.7436-1.14-.7461-1.14v-3.066c0-1.982.0093-3.0963.0234-3.1502.0375-.1313.1196-.2346.2323-.2955.0961-.0494.1313-.054.4997-.054z"/>
@@ -73,42 +76,43 @@ How to install dependencies and structure your app.
 ---
 
 
-## Option 1 - Use shadcn/ui
+## Quick Installation
 
-If you're already using **shadcn/ui**, you're done — Elixir UI uses the same setup.
+### Step 1: Initialize Your Project
 
-**New to shadcn/ui?** Initialize your project:
+If you're already using **shadcn/ui**, skip to Step 2. Otherwise, initialize your project:
 
 <CodeBlock language="bash" code="npx shadcn@latest init" />
 
-{/* <div className="bg-muted p-4 rounded-lg my-4"> */}
-<CodeBlock language="bash" code={`npx shadcn@latest init
-✔ ElixirUI initialized successfully!`} />
-{/* </div> */}
+You'll be prompted to configure your project. Choose your preferences for styling, components, and directory structure.
 
-Then add an Elixir UI component:
+### Step 2: Add Elixir UI Components
 
-<CodeBlock language="bash" code="npx shadcn@latest add https://ui.elixirlabs.in/registry/component.json" />
+Once initialized, add any Elixir UI component directly:
+
+<CodeBlock language="bash" code="npx shadcn@latest add https://ui.elixirlabs.in/r/component.json" />
+
+Replace `component` with the specific component name you want to add (e.g., `card`, `header`, `footer`).
+
+<div class="px-6 py-4 border-l-4 border-green-500 bg-green-50 dark:bg-green-950/10 dark:border-green-400 rounded-r-lg mt-6">
+  <p class="text-sm text-green-800 dark:text-green-200">
+    <strong>That's it!</strong> Your component is now ready to use in your project.
+  </p>
+</div>
+
+### Need More Help?
 
 📘 [Full shadcn setup guide →](https://ui.shadcn.com/docs/installation)
 
 ---
 
-## Option 2 - Use ElixirUI CLI
+## Use ElixirUI CLI
 <div className="p-6 pb-10 border border-dashed border-border rounded-lg text-center bg-muted/30">
-  {/* <div className="mb-3">
-    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm">
-      🚧 Coming Soon
-    </span>
-  </div> */}
   
   <h3 className="text-lg font-semibold mb-2">Coming Soon!</h3>
   <p className="text-muted-foreground text-sm mb-4">
-    Working on it! In the meantime, use option 1.
+    Working on it! In the meantime, use Quick Installation.
   </p>
-  
-  
-{/* <CodeBlock language="bash" code="npx elixirlabs@latest init" /> */}
   
 </div>
 

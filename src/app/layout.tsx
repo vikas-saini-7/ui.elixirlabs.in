@@ -35,7 +35,7 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} antialiased dark`}
       >
         <Header />
-        <SubHeader />
+        {/* <SubHeader /> */}
 
         <main className="container mx-auto min-h-[80vh]">
           {children}

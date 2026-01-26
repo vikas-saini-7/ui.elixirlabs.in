@@ -1,0 +1,50 @@
+{
+    "name": "card",
+    "type": "registry:ui",
+    "description": "Modern card component with product, blog, and feature variants. Supports images, tags, and custom footers.",
+    "category": "cards",
+    "subcategory": null,
+    "tags": [
+        "card",
+        "product",
+        "blog",
+        "feature",
+        "container"
+    ],
+    "files": [
+        {
+            "path": "components/ui/card.tsx",
+            "type": "registry:ui",
+            "target": "components/ui/card.tsx"
+        }
+    ],
+    "dependencies": [
+        "react",
+        "next"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tailwind": {
+        "config": {
+            "theme": {
+                "extend": {}
+            }
+        }
+    },
+    "cssVars": {},
+    "meta": {
+        "version": "1.0.0",
+        "status": "stable",
+        "accessibility": [
+            "keyboard-navigation",
+            "focus-visible"
+        ],
+        "hasDocumentation": false,
+        "hasTests": false,
+        "hasExamples": false,
+        "author": {
+            "name": "ElixirLabs",
+            "url": "https://elixirlabs.in"
+        }
+    }
+}

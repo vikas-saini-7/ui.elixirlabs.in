@@ -1,0 +1,367 @@
+import { Header } from "@/components/ui/header";
+import ComponentViewerBox from "../../views/ComponentViewerBox";
+import CodeBlock from "../../views/CodeBlock";
+import DocsTabs from "../../views/DocsTabs";
+import { loadRawFile } from "@/lib/loadRawFile";
+
+export const componentRawCode = loadRawFile("registry/components/header/component.tsx");
+
+export const basicExample = `import { Header } from "@/components/ui/header";
+
+<Header
+  logo="YourBrand"
+  navLinks={[
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" }
+  ]}
+  cta={<button className="px-4 py-2 bg-purple-500 text-white rounded-md">Get Started</button>}
+/>`;
+
+<ComponentViewerBox background={false} code={basicExample}>
+  <div className="w-full">
+    <Header
+      logo="YourBrand"
+      navLinks={[
+        { label: "Home", href: "/" },
+        { label: "About", href: "/about" },
+        { label: "Contact", href: "/contact" }
+      ]}
+      cta={<button className="px-4 py-2 bg-purple-500 text-white rounded-md text-sm">Get Started</button>}
+    />
+  </div>
+</ComponentViewerBox>
+
+## Installation
+
+<DocsTabs 
+  cliContent={
+    <div>
+      <CodeBlock language='bash' code={`npx shadcn@latest add https://ui.elixirlabs.in/r/header.json`} />
+    </div>
+  }
+  manualContent={
+    <div>
+      <p className="mb-4">
+        Copy and paste the following code into your project:
+      </p>
+      <CodeBlock language="tsx" code={componentRawCode || "// Component code not found"} />
+    </div>
+  }
+/>
+
+## Variants
+
+### Sticky Header
+
+Stays fixed at the top when scrolling.
+
+<CodeBlock code={`<Header
+  variant="sticky"
+  blur={true}
+  logo="Brand"
+  navLinks={[...]}
+/>`} />
+
+### Floating Header
+
+Rounded, centered header that appears on scroll.
+
+<CodeBlock code={`<Header
+  variant="floating"
+  rounded="full"
+  shadow="xl"
+  blur={true}
+  logo="Brand"
+  navLinks={[...]}
+/>`} />
+
+### Transparent Header
+
+Perfect for hero sections, becomes solid on scroll.
+
+<CodeBlock code={`<Header
+  variant="transparent"
+  colorOnScroll={true}
+  blur={true}
+  logo="Brand"
+  navLinks={[...]}
+/>`} />
+
+### Glass Morphism
+
+Modern frosted glass effect.
+
+<CodeBlock code={`<Header
+  variant="glass"
+  border="subtle"
+  logo="Brand"
+  navLinks={[...]}
+/>`} />
+
+## Props
+
+### Content Props
+
+<div className="overflow-x-auto">
+  <table className="w-full text-sm">
+    <thead>
+      <tr className="border-b">
+        <th className="text-left py-2 px-4">Prop</th>
+        <th className="text-left py-2 px-4">Type</th>
+        <th className="text-left py-2 px-4">Default</th>
+        <th className="text-left py-2 px-4">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>logo</code></td>
+        <td className="py-2 px-4">ReactNode | string</td>
+        <td className="py-2 px-4">"Logo"</td>
+        <td className="py-2 px-4">Logo or brand name</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>navLinks</code></td>
+        <td className="py-2 px-4">NavLink[]</td>
+        <td className="py-2 px-4">[]</td>
+        <td className="py-2 px-4">Navigation links with optional submenu</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>cta</code></td>
+        <td className="py-2 px-4">ReactNode</td>
+        <td className="py-2 px-4">-</td>
+        <td className="py-2 px-4">Call-to-action component</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>searchBar</code></td>
+        <td className="py-2 px-4">ReactNode</td>
+        <td className="py-2 px-4">-</td>
+        <td className="py-2 px-4">Search bar component</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>mobileMenu</code></td>
+        <td className="py-2 px-4">ReactNode</td>
+        <td className="py-2 px-4">-</td>
+        <td className="py-2 px-4">Mobile menu component</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### Layout Props
+
+<div className="overflow-x-auto">
+  <table className="w-full text-sm">
+    <thead>
+      <tr className="border-b">
+        <th className="text-left py-2 px-4">Prop</th>
+        <th className="text-left py-2 px-4">Type</th>
+        <th className="text-left py-2 px-4">Default</th>
+        <th className="text-left py-2 px-4">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>variant</code></td>
+        <td className="py-2 px-4">"default" | "sticky" | "floating" | "transparent" | "bordered" | "glass"</td>
+        <td className="py-2 px-4">"default"</td>
+        <td className="py-2 px-4">Header style variant</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>position</code></td>
+        <td className="py-2 px-4">"relative" | "fixed" | "absolute"</td>
+        <td className="py-2 px-4">"relative"</td>
+        <td className="py-2 px-4">CSS position</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>width</code></td>
+        <td className="py-2 px-4">"full" | "container" | "narrow" | "wide"</td>
+        <td className="py-2 px-4">"container"</td>
+        <td className="py-2 px-4">Header width</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>align</code></td>
+        <td className="py-2 px-4">"left" | "center" | "between"</td>
+        <td className="py-2 px-4">"between"</td>
+        <td className="py-2 px-4">Content alignment</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### Styling Props
+
+<div className="overflow-x-auto">
+  <table className="w-full text-sm">
+    <thead>
+      <tr className="border-b">
+        <th className="text-left py-2 px-4">Prop</th>
+        <th className="text-left py-2 px-4">Type</th>
+        <th className="text-left py-2 px-4">Default</th>
+        <th className="text-left py-2 px-4">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>blur</code></td>
+        <td className="py-2 px-4">boolean</td>
+        <td className="py-2 px-4">false</td>
+        <td className="py-2 px-4">Enable backdrop blur</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>shadow</code></td>
+        <td className="py-2 px-4">"none" | "sm" | "md" | "lg" | "xl"</td>
+        <td className="py-2 px-4">"none"</td>
+        <td className="py-2 px-4">Shadow size</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>border</code></td>
+        <td className="py-2 px-4">"none" | "bottom" | "full" | "subtle"</td>
+        <td className="py-2 px-4">"bottom"</td>
+        <td className="py-2 px-4">Border style</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>rounded</code></td>
+        <td className="py-2 px-4">"none" | "sm" | "md" | "lg" | "full"</td>
+        <td className="py-2 px-4">"none"</td>
+        <td className="py-2 px-4">Border radius</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### Behavior Props
+
+<div className="overflow-x-auto">
+  <table className="w-full text-sm">
+    <thead>
+      <tr className="border-b">
+        <th className="text-left py-2 px-4">Prop</th>
+        <th className="text-left py-2 px-4">Type</th>
+        <th className="text-left py-2 px-4">Default</th>
+        <th className="text-left py-2 px-4">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>hideOnScroll</code></td>
+        <td className="py-2 px-4">boolean</td>
+        <td className="py-2 px-4">false</td>
+        <td className="py-2 px-4">Hide when scrolling down</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>shrinkOnScroll</code></td>
+        <td className="py-2 px-4">boolean</td>
+        <td className="py-2 px-4">false</td>
+        <td className="py-2 px-4">Reduce height on scroll</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>colorOnScroll</code></td>
+        <td className="py-2 px-4">boolean</td>
+        <td className="py-2 px-4">auto</td>
+        <td className="py-2 px-4">Change color on scroll</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### Spacing Props
+
+<div className="overflow-x-auto">
+  <table className="w-full text-sm">
+    <thead>
+      <tr className="border-b">
+        <th className="text-left py-2 px-4">Prop</th>
+        <th className="text-left py-2 px-4">Type</th>
+        <th className="text-left py-2 px-4">Default</th>
+        <th className="text-left py-2 px-4">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>padding</code></td>
+        <td className="py-2 px-4">"none" | "sm" | "md" | "lg"</td>
+        <td className="py-2 px-4">"md"</td>
+        <td className="py-2 px-4">Horizontal padding</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 px-4"><code>height</code></td>
+        <td className="py-2 px-4">"sm" | "md" | "lg" | "xl"</td>
+        <td className="py-2 px-4">"md"</td>
+        <td className="py-2 px-4">Header height</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+## NavLink Interface
+
+```tsx
+interface NavLink {
+  label: string;
+  href: string;
+  badge?: string;        // Optional badge (e.g., "New", "Pro")
+  submenu?: NavLink[];   // Optional dropdown submenu
+}
+```
+
+## Advanced Examples
+
+### With Submenu
+
+<CodeBlock code={`<Header
+  logo="Brand"
+  navLinks={[
+    { label: "Home", href: "/" },
+    { 
+      label: "Products",
+      href: "/products",
+      submenu: [
+        { label: "Product A", href: "/products/a" },
+        { label: "Product B", href: "/products/b" }
+      ]
+    }
+  ]}
+/>`} />
+
+### With Badges
+
+<CodeBlock code={`<Header
+  logo="Brand"
+  navLinks={[
+    { label: "Features", href: "/features", badge: "New" },
+    { label: "Pricing", href: "/pricing", badge: "Pro" }
+  ]}
+/>`} />
+
+### Hide on Scroll
+
+<CodeBlock code={`<Header
+  variant="sticky"
+  hideOnScroll={true}
+  blur={true}
+  logo="Brand"
+  navLinks={[...]}
+/>`} />
+
+### Full Width with Custom Styling
+
+<CodeBlock code={`<Header
+  width="full"
+  height="lg"
+  padding="lg"
+  shadow="md"
+  border="full"
+  rounded="lg"
+  logo="Brand"
+  navLinks={[...]}
+/>`} />
+
+## Accessibility
+
+- Semantic `<header>` and `<nav>` elements
+- Keyboard navigation support
+- Focus-visible styles
+- ARIA labels for interactive elements
+- Screen reader compatible
+- Responsive design with mobile menu slot
