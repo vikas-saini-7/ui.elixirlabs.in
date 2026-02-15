@@ -50,7 +50,7 @@ function EditOnGitHubButton({ url }: { url: string }) {
 // AdPlaceholder: Simple future ad section
 function AdPlaceholder() {
   return (
-    <div className="bg-gray-500/10 rounded-md h-60 flex items-center justify-center text-xs text-muted-foreground">
+    <div className="bg-gray-500/10 rounded-md h-30 flex items-center justify-center text-xs text-muted-foreground mb-4">
       {/* Ad placeholder - replace with ad content in future */}
       Ad placeholder
     </div>

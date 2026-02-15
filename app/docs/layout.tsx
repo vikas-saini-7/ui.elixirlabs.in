@@ -29,8 +29,8 @@ export default function DocsLayout({
       {/* Right Aside */}
       <aside className="w-72 border-l border-dashed border-sidebar-border text-sidebar-foreground hidden xl:flex flex-col h-[calc(100vh-4rem)] fixed right-0 top-16 z-30 p-6 gap-4 bg-background/80 backdrop-blur">
         <OnThisPage />
-        <EditOnGitHubButton url="https://github.com/elixir-labs-global/ui.elixirlabs.in" />
         <AdPlaceholder />
+        <EditOnGitHubButton url="https://github.com/elixir-labs-global/ui.elixirlabs.in" />
       </aside>
     </div>
   );
