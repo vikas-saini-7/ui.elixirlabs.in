@@ -3,30 +3,32 @@ export interface NavItem {
   href: string;
 }
 
-export interface NavGroup {
+export interface NavSection {
   label: string;
   items: NavItem[];
 }
 
-export type NavigationItem = NavItem | NavGroup;
-
-export const docsNavigation = {
-  overview: [
-    { label: "Introduction", href: "/docs/overview/introduction" },
-    // { label: "Getting Started", href: "/docs/overview/getting-started" },
-    { label: "Installation", href: "/docs/overview/installation" },
-    { label: "Releases", href: "/docs/overview/releases" },
-  ] as NavItem[],
-  components: [
-    { label: "On This Page", href: "/docs/components/on-this-page" },
-    // { label: "Alert", href: "/docs/components/alert" },
-    // { label: "Button", href: "/docs/components/button" },
-    // {
-    //   label: "Forms",
-    //   items: [
-    //     { label: "Input", href: "/docs/components/input" },
-    //     { label: "Select", href: "/docs/components/select" },
-    //   ],
-    // },
-  ] as NavigationItem[],
-};
+export const docsNavigation: NavSection[] = [
+  {
+    label: "Getting Started",
+    items: [
+      { label: "Introduction", href: "/docs" },
+      { label: "Installation", href: "/docs/installation" },
+      { label: "Releases", href: "/docs/releases" },
+    ],
+  },
+  {
+    label: "UI Components",
+    items: [
+      { label: "On This Page", href: "/docs/on-this-page" },
+      { label: "Digital Timer", href: "/docs/digital-timer" },
+    ],
+  },
+  {
+    label: "Text Effects",
+    items: [
+      { label: "Text", href: "/docs/text" },
+      { label: "Pulpy", href: "/docs/pulpy" },
+    ],
+  },
+];

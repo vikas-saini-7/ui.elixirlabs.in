@@ -15,30 +15,24 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  // Flatten all docs items for search
+  // Flatten all docs items for search (NavSection[])
   const allDocsItems = useMemo(() => {
     const items: NavItem[] = [];
-
-    Object.values(docsNavigation).forEach((section) => {
-      section.forEach((item) => {
-        if ("href" in item) {
-          items.push(item);
-        } else if ("items" in item) {
-          items.push(...item.items);
-        }
+    docsNavigation.forEach((section) => {
+      section.items.forEach((item) => {
+        items.push(item);
       });
     });
-
     return items;
   }, []);
 
   // Filter items based on query
   const filteredItems = useMemo(() => {
-    if (!query.trim()) return allDocsItems.slice(0, 8);
+    if (!query.trim()) return allDocsItems.slice(0, 5);
 
     return allDocsItems
       .filter((item) => item.label.toLowerCase().includes(query.toLowerCase()))
-      .slice(0, 8);
+      .slice(0, 5);
   }, [query, allDocsItems]);
 
   // Handle keyboard navigation
@@ -50,7 +44,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
         case "ArrowDown":
           e.preventDefault();
           setSelectedIndex((prev) =>
-            prev < filteredItems.length - 1 ? prev + 1 : prev
+            prev < filteredItems.length - 1 ? prev + 1 : prev,
           );
           break;
         case "ArrowUp":
@@ -92,11 +86,12 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-start justify-center pt-[15vh]"
+      className="fixed inset-0 z-50 min-h-screen flex items-start justify-center pt-[15vh]"
       onClick={onClose}
     >
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-lg z-40" />
       <div
-        className="bg-[#0a0a0a] border border-gray-500/20 rounded-xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden"
+        className="relative z-50 bg-[#0a0a0a] border border-gray-500/20 rounded-xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}

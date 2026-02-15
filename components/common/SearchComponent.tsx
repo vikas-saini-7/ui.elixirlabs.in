@@ -26,15 +26,15 @@ const SearchComponent = () => {
           onClick={() => setIsModalOpen(true)}
           className="relative w-64 flex items-center"
         >
-          <div className="w-full bg-[#1a1a1a] text-sm text-gray-300 placeholder-gray-500 rounded-lg pl-9 pr-12 py-2 outline-none text-left hover:bg-[#1f1f1f] transition-colors border border-transparent hover:border-gray-500/20">
-            <span className="text-gray-500">Search documentation...</span>
+          <div className="w-full bg-gray-500/10 text-sm text-gray-300 placeholder-gray-500 rounded-xl pl-9 pr-12 py-2 outline-none text-left  transition-colors border border-transparent hover:border-gray-500/20">
+            <span className="text-gray-500 text-xs">Search documentation...</span>
           </div>
           <IconSearch
             size={18}
             className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
           />
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-500 border border-gray-500/30 px-1.5 py-0.5 rounded font-mono">
-            ⌘ K
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 text-xs px-1.5 py-0.5 rounded border">
+            ⌘ + K
           </div>
         </button>
       </div>
