@@ -12,7 +12,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden h-[90vh]">
+    <section className="relative py-20 lg:py-32 overflow-hidden h-[90vh] max-h-[850px]">
       {/* Animated White Meteor Blobs */}
       <div
         className="absolute w-[500px] h-[500px] rounded-full opacity-10 blur-3xl pointer-events-none"

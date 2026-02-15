@@ -2,8 +2,29 @@ import React from "react";
 import { IconHeartFilled } from "@tabler/icons-react";
 import Link from "next/link";
 import Image from "next/image";
-
 import brandLogo from "@/assets/elixir-ui-logo.svg";
+
+const documentationLinks = [
+  {
+    label: "Getting Started",
+    href: "/docs/overview/introduction",
+    isExternal: false,
+  },
+  { label: "Components", href: "/docs/components", isExternal: false },
+  { label: "Installation", href: "/docs/installation", isExternal: false },
+  { label: "Examples", href: "/docs/examples", isExternal: false },
+];
+
+const communityLinks = [
+  { label: "Discord", href: "#", isExternal: true },
+  {
+    label: "Report Issues",
+    href: "https://github.com/elixirlabs/ui/issues",
+    isExternal: true,
+  },
+  { label: "Contributing", href: "#", isExternal: true },
+  { label: "Changelog", href: "#", isExternal: true },
+];
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -37,38 +58,16 @@ const Footer = () => {
               Documentation
             </h4>
             <ul className="space-y-3">
-              <li>
-                <Link
-                  href="/docs/overview/introduction"
-                  className="text-white/60 hover:text-white transition-colors duration-300 text-base"
-                >
-                  Getting Started
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/docs/components"
-                  className="text-white/60 hover:text-white transition-colors duration-300 text-base"
-                >
-                  Components
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="/docs/installation"
-                  className="text-white/60 hover:text-white transition-colors duration-300 text-base"
-                >
-                  Installation
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/docs/examples"
-                  className="text-white/60 hover:text-white transition-colors duration-300 text-base"
-                >
-                  Examples
-                </a>
-              </li>
+              {documentationLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-white/60 hover:text-white transition-colors duration-300 text-base"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -78,38 +77,27 @@ const Footer = () => {
               Community
             </h4>
             <ul className="space-y-3">
-              <li>
-                <a
-                  href="#"
-                  className="text-white/60 hover:text-white transition-colors duration-300 text-base"
-                >
-                  Discord
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/elixirlabs/ui/issues"
-                  className="text-white/60 hover:text-white transition-colors duration-300 text-base"
-                >
-                  Report Issues
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white/60 hover:text-white transition-colors duration-300 text-base"
-                >
-                  Contributing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white/60 hover:text-white transition-colors duration-300 text-base"
-                >
-                  Changelog
-                </a>
-              </li>
+              {communityLinks.map((link) => (
+                <li key={link.label}>
+                  {link.isExternal ? (
+                    <a
+                      href={link.href}
+                      className="text-white/60 hover:text-white transition-colors duration-300 text-base"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-white/60 hover:text-white transition-colors duration-300 text-base"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -120,7 +108,7 @@ const Footer = () => {
             {/* Copyright */}
             <div className="flex items-center space-x-2 text-white/50 text-base">
               <span>
-                ©{currentYear} Elixir UI &#8226;  {" "} powered by{" "}
+                ©{currentYear} Elixir UI &#8226; powered by{" "}
                 <a
                   href="https://elixirlabs.in"
                   target="_blank"
