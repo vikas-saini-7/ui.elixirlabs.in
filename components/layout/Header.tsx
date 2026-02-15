@@ -5,7 +5,7 @@ import SearchComponent from "@/components/common/SearchComponent";
 import ThemeSwitch from "@/components/common/ThemeSwitch";
 import HeaderSocials from "@/components/common/HeaderSocials";
 import Link from "next/link";
-import { docsNavigation, NavItem } from "@/lib/docs-nav";
+// import { docsNavigation, NavItem } from "@/lib/docs-nav";
 
 const mainNavigations = [
   {

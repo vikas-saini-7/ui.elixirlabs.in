@@ -1,9 +1,5 @@
 import React from "react";
 import {
-  IconMail,
-  IconBrandTwitter,
-  IconBrandGithub,
-  IconBrandLinkedin,
   IconHeartFilled,
 } from "@tabler/icons-react";
 import Link from "next/link";
