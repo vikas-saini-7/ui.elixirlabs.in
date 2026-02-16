@@ -1,11 +1,13 @@
+"use client";
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import brandLogo from "@/assets/elixir-ui-logo.svg";
 import SearchComponent from "@/components/common/SearchComponent";
 import ThemeSwitch from "@/components/common/ThemeSwitch";
 import HeaderSocials from "@/components/common/HeaderSocials";
-import Link from "next/link";
 import { docsNavigation } from "@/lib/docs-navs";
+import { usePathname } from "next/navigation";
 
 const mainNavigations = [
   {
@@ -19,6 +21,9 @@ const mainNavigations = [
 ];
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
+
+  if (pathname === "/playground") return null;
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md container mx-auto px-4 h-16 flex items-center justify-between border-b border-dashed">
       {/* left  */}
