@@ -7,31 +7,57 @@ import {
 
 export default function DocsLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <div className="flex h-screen bg-background text-foreground overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Left Sidebar */}
-      <aside className="w-64 border-r border-dashed border-sidebar-border text-sidebar-foreground hidden md:flex flex-col h-[calc(100vh-4rem)] fixed left-0 top-16 z-30 group/sidebar">
-        <div className="h-full transition-all">
-          <div className="h-full overflow-hidden group-hover/sidebar:overflow-auto">
-            <Sidebar />
-          </div>
+      <aside className="
+        hidden md:flex
+        fixed left-0 top-16
+        h-[calc(100vh-4rem)]
+        w-64
+        border-r border-dashed border-sidebar-border
+        bg-background
+        z-30
+      ">
+        <div className="flex-1 overflow-y-auto px-4 py-6">
+          <Sidebar />
+        </div>
+      </aside>
+
+      {/* Right Sidebar */}
+      <aside className="
+        hidden xl:flex
+        fixed right-0 top-16
+        h-[calc(100vh-4rem)]
+        w-72
+        border-l border-dashed border-sidebar-border
+        bg-background/80 backdrop-blur
+        z-30
+      ">
+        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+          <OnThisPage />
+          <AdPlaceholder />
+          <EditOnGitHubButton url="https://github.com/elixir-labs-global/ui.elixirlabs.in" />
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 h-full overflow-y-auto p-6 md:p-10 max-w-4xl mx-auto w-full custom-scrollbar">
-        {children}
+      <main
+        className="
+          min-h-screen
+          pt-10
+          px-6
+          md:pl-76
+          xl:pr-80
+        "
+      >
+        <div className="mx-auto w-full max-w-4xl">
+          {children}
+        </div>
       </main>
-
-      {/* Right Aside */}
-      <aside className="w-72 border-l border-dashed border-sidebar-border text-sidebar-foreground hidden xl:flex flex-col h-[calc(100vh-4rem)] fixed right-0 top-16 z-30 p-6 gap-4 bg-background/80 backdrop-blur">
-        <OnThisPage />
-        <AdPlaceholder />
-        <EditOnGitHubButton url="https://github.com/elixir-labs-global/ui.elixirlabs.in" />
-      </aside>
     </div>
   );
 }

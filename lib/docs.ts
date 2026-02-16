@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { compileMDX } from "next-mdx-remote/rsc";
+import { mdxComponents } from "@/content/views";
 
 const docsDirectory = path.join(process.cwd(), "content/docs");
 
@@ -20,6 +21,7 @@ export async function getDocBySlug(slug: string) {
   const { content: mdxContent } = await compileMDX({
     source: content,
     options: { parseFrontmatter: false },
+    components: mdxComponents,
   });
 
   return {
