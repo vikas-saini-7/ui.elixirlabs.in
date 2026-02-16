@@ -24,7 +24,7 @@ const Sidebar = () => {
                       <Link
                         href={item.slug}
                         className={
-                          `block rounded px-2 py-1 text-sm transition-colors ` +
+                          `block rounded-md px-3 py-1 text-sm transition-colors ` +
                           (isActive
                             ? "text-white bg-gray-500/10"
                             : "text-white hover:bg-gray-500/10 hover:text-sidebar-accent-foreground")

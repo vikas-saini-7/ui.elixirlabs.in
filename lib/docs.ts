@@ -24,10 +24,33 @@ export async function getDocBySlug(slug: string) {
     components: mdxComponents,
   });
 
+  const headings = extractHeadings(content);
+
   return {
     slug: realSlug,
     label: data.label,
     description: data.description || "",
     content: mdxContent,
+    headings,
   };
+}
+
+function extractHeadings(source: string) {
+  const regex = /^(##|###)\s+(.*)/gm;
+  const headings = [];
+  let match;
+
+  while ((match = regex.exec(source)) !== null) {
+    const level = match[1].length;
+    const text = match[2].trim();
+
+    const slug = text
+      .toLowerCase()
+      .replace(/[^\w\s]/g, "")
+      .replace(/\s+/g, "-");
+
+    headings.push({ level, text, slug });
+  }
+
+  return headings;
 }

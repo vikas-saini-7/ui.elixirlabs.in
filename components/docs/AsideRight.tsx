@@ -3,28 +3,30 @@ import { Button } from "@/components/ui/button";
 import { IconPencil } from "@tabler/icons-react";
 
 // OnThisPage: Simple anchor list
-function OnThisPage() {
+function OnThisPage({
+  headings,
+}: {
+  headings: { level: number; text: string; slug: string }[];
+}) {
   return (
-    <nav className="mb-2">
-      <div className="text-xs font-semibold mb-2 text-muted-foreground uppercase">
+    <nav>
+      <div className="text-xs font-semibold mb-3 text-muted-foreground uppercase">
         On this page
       </div>
-      <ul className="text-sm space-y-1">
-        <li>
-          <a href="#section1" className="hover:underline">
-            Section 1
-          </a>
-        </li>
-        <li>
-          <a href="#section2" className="hover:underline">
-            Section 2
-          </a>
-        </li>
-        <li>
-          <a href="#section3" className="hover:underline">
-            Section 3
-          </a>
-        </li>
+
+      <ul className="text-sm space-y-2">
+        {headings.map((heading) => (
+          <li key={heading.slug}>
+            <a
+              href={`#${heading.slug}`}
+              className={`hover:text-primary transition ${
+                heading.level === 3 ? "ml-4 text-muted-foreground" : ""
+              }`}
+            >
+              {heading.text}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   );
@@ -57,4 +59,29 @@ function AdPlaceholder() {
   );
 }
 
-export { OnThisPage, EditOnGitHubButton, AdPlaceholder };
+function AsideRight({
+  headings,
+}: {
+  headings: { level: number; text: string; slug: string }[];
+}) {
+  return (
+    <aside
+      className="
+          sticky top-16
+          h-[calc(100vh-64px)]
+          w-80
+          border-l border-dashed border-sidebar-border
+          bg-background/80 backdrop-blur
+          z-30
+        "
+    >
+      <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        <OnThisPage headings={headings} />
+        <AdPlaceholder />
+        <EditOnGitHubButton url="https://github.com/elixir-labs-global/ui.elixirlabs.in" />
+      </div>
+    </aside>
+  );
+}
+
+export { OnThisPage, EditOnGitHubButton, AdPlaceholder, AsideRight };

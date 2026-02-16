@@ -47,4 +47,25 @@ export const mdxComponents = {
 
     return <CodeBlock language={language} code={code} />;
   },
+
+  // addning IDs to heading tags for anchor links and on this page navigation
+  h2: ({ children }: any) => {
+    const text = children?.toString();
+    const slug = text
+      ?.toLowerCase()
+      .replace(/[^\w\s]/g, "")
+      .replace(/\s+/g, "-");
+
+    return <h2 id={slug}>{children}</h2>;
+  },
+
+  h3: ({ children }: any) => {
+    const text = children?.toString();
+    const slug = text
+      ?.toLowerCase()
+      .replace(/[^\w\s]/g, "")
+      .replace(/\s+/g, "-");
+
+    return <h3 id={slug}>{children}</h3>;
+  },
 };

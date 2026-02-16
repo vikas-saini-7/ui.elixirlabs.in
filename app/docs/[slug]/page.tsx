@@ -1,6 +1,6 @@
-import { DocsPage } from "@/components/docs/DocsPage";
 import { getDocBySlug } from "@/lib/docs";
 import { notFound } from "next/navigation";
+import DocsPage from "@/components/docs/DocsPage";
 
 export default async function Page({
   params,
@@ -15,5 +15,5 @@ export default async function Page({
     notFound();
   }
 
-  return <DocsPage content={doc.content} />;
+  return <DocsPage doc={doc} />;
 }

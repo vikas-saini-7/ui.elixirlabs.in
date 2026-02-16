@@ -1,13 +1,25 @@
-"use client";
+import React from "react";
+import { DocsPageContent } from "./DocsPageContent";
+import { AsideRight } from "./AsideRight";
 
-interface DocsPageProps {
+interface Doc {
+  slug: string;
+  label: string;
+  description: string;
   content: React.ReactNode;
+  headings: { level: number; text: string; slug: string }[];
 }
 
-export function DocsPage({ content }: DocsPageProps) {
+const DocsPage = ({ doc }: { doc: Doc }) => {
   return (
-    <article className="prose dark:prose-invert prose-neutral w-full max-w-3xl mx-auto">
-      {content}
-    </article>
+    <main className="min-h-screen md:pl-64 flex">
+      {/* Content */}
+      <DocsPageContent content={doc.content} />
+
+      {/* Right Sidebar */}
+      <AsideRight headings={doc.headings} />
+    </main>
   );
-}
+};
+
+export default DocsPage;
