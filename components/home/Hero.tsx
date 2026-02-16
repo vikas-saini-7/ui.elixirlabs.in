@@ -72,7 +72,7 @@ const Hero = () => {
               </Button>
             </Link>
 
-            <Link href="https://github.com" target="_blank">
+            <Link href="https://github.com/elixir-labs-global/ui.elixirlabs.in" target="_blank">
               <Button variant="outline" size="lg">
                 <IconBrandGithub size={20} />
                 Star on GitHub

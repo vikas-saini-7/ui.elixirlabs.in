@@ -5,11 +5,11 @@ import React from "react";
 const socials = [
   {
     icon: <IconBrandGithub size={20} />,
-    href: "https://github.com/",
+    href: "https://github.com/elixir-labs-global/ui.elixirlabs.in",
   },
   {
     icon: <IconBrandDiscord size={20} />,
-    href: "https://discord.com/",
+    href: "#",
   },
 ];
 
