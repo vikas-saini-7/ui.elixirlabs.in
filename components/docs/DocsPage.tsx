@@ -4,7 +4,7 @@ interface DocsPageProps {
 
 export function DocsPage({ content }: DocsPageProps) {
   return (
-    <article className="prose max-w-3xl">
+    <article className="prose dark:prose-invert prose-neutral max-w-3xl">
       {content}
     </article>
   );
