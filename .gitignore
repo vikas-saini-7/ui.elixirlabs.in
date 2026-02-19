@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# ignoring playground components so that we can test changes without committing them. These files are not deleted, just ignored by git.
+/app/playground/my-components/
