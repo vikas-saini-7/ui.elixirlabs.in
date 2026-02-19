@@ -21,81 +21,86 @@ interface StateContextType {
 const StateContext = createContext<StateContextType | null>(null);
 
 export const StateProvider = ({ children }: { children: React.ReactNode }) => {
-  const [boxColor, setBoxColorState] = React.useState<string>(() => {
+  const [playgroundState, setPlaygroundState] = React.useState(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("playground-box-color") || "#ef4444";
+      const vAlign = localStorage.getItem("playground-vertical-align");
+      const hAlign = localStorage.getItem("playground-horizontal-align");
+      return {
+        boxColor: localStorage.getItem("playground-box-color") || "#ef4444",
+        showHeader:
+          localStorage.getItem("playground-show-header") === null
+            ? true
+            : localStorage.getItem("playground-show-header") === "true",
+        fullWidth: localStorage.getItem("playground-fullwidth") === "true",
+        verticalAlign:
+          vAlign === "top" || vAlign === "center" || vAlign === "bottom"
+            ? vAlign
+            : "center",
+        horizontalAlign:
+          hAlign === "left" || hAlign === "center" || hAlign === "right"
+            ? hAlign
+            : "center",
+      };
     }
-    return "#ef4444";
-  });
-  const [showHeader, setShowHeader] = useState(true);
-  const [fullWidth, setFullWidth] = useState<boolean>(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("playground-fullwidth");
-      return stored === "true";
-    }
-    return false;
-  });
-  const [verticalAlign, setVerticalAlignState] = useState<
-    "top" | "center" | "bottom"
-  >(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("playground-vertical-align");
-      if (stored === "top" || stored === "center" || stored === "bottom")
-        return stored;
-    }
-    return "center";
-  });
-  const [horizontalAlign, setHorizontalAlignState] = useState<
-    "left" | "center" | "right"
-  >(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("playground-horizontal-align");
-      if (stored === "left" || stored === "center" || stored === "right")
-        return stored;
-    }
-    return "center";
+    return {
+      boxColor: "#ef4444",
+      showHeader: true,
+      fullWidth: false,
+      verticalAlign: "center",
+      horizontalAlign: "center",
+    };
   });
 
-  // Sync with localStorage
+  // Sync with localStorage on state change
   React.useEffect(() => {
-    localStorage.setItem("playground-fullwidth", fullWidth ? "true" : "false");
-  }, [fullWidth]);
+    localStorage.setItem("playground-box-color", playgroundState.boxColor);
+    localStorage.setItem(
+      "playground-show-header",
+      playgroundState.showHeader ? "true" : "false",
+    );
+    localStorage.setItem(
+      "playground-fullwidth",
+      playgroundState.fullWidth ? "true" : "false",
+    );
+    localStorage.setItem(
+      "playground-vertical-align",
+      playgroundState.verticalAlign,
+    );
+    localStorage.setItem(
+      "playground-horizontal-align",
+      playgroundState.horizontalAlign,
+    );
+  }, [playgroundState]);
 
-  React.useEffect(() => {
-    localStorage.setItem("playground-vertical-align", verticalAlign);
-  }, [verticalAlign]);
-
-  React.useEffect(() => {
-    localStorage.setItem("playground-horizontal-align", horizontalAlign);
-  }, [horizontalAlign]);
-
-  // Setters that sync with localStorage
-  const setVerticalAlign = (v: "top" | "center" | "bottom") => {
-    setVerticalAlignState(v);
-    // localStorage sync handled by effect
+  // Setters
+  const toggleHeader = () => {
+    setPlaygroundState((prev) => ({ ...prev, showHeader: !prev.showHeader }));
   };
-  const setHorizontalAlign = (h: "left" | "center" | "right") => {
-    setHorizontalAlignState(h);
-    // localStorage sync handled by effect
+  const toggleFullWidth = () => {
+    setPlaygroundState((prev) => ({ ...prev, fullWidth: !prev.fullWidth }));
   };
-
+  const setVerticalAlign = (v: VerticalAlign) => {
+    setPlaygroundState((prev) => ({ ...prev, verticalAlign: v }));
+  };
+  const setHorizontalAlign = (h: HorizontalAlign) => {
+    setPlaygroundState((prev) => ({ ...prev, horizontalAlign: h }));
+  };
   const setBoxColor = (color: string) => {
-    setBoxColorState(color);
-    localStorage.setItem("playground-box-color", color);
+    setPlaygroundState((prev) => ({ ...prev, boxColor: color }));
   };
 
   return (
     <StateContext.Provider
       value={{
-        showHeader,
-        toggleHeader: () => setShowHeader((p) => !p),
-        fullWidth,
-        toggleFullWidth: () => setFullWidth((p) => !p),
-        verticalAlign,
+        showHeader: playgroundState.showHeader,
+        toggleHeader,
+        fullWidth: playgroundState.fullWidth,
+        toggleFullWidth,
+        verticalAlign: playgroundState.verticalAlign as VerticalAlign,
         setVerticalAlign,
-        horizontalAlign,
+        horizontalAlign: playgroundState.horizontalAlign as HorizontalAlign,
         setHorizontalAlign,
-        boxColor,
+        boxColor: playgroundState.boxColor,
         setBoxColor,
       }}
     >
