@@ -1,12 +1,9 @@
 "use client";
 
 import React from "react";
-import {
-  StateProvider,
-  usePlaygroundState,
-} from "../../contexts/PlaygroundStateContext";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import PlaygroundHeader from "@/components/playground/PlaygroundHeader";
+import { StateProvider, usePlaygroundState } from "../../contexts/PlaygroundStateContext";
 
 import { useEffect, useState, useCallback } from "react";
 
@@ -55,7 +52,7 @@ function PlaygroundShell({ children }: { children: React.ReactNode }) {
       style={{ background: boxColor }}
     >
       {/* Overlay */}
-      {overlay !== "none" && (
+      {/* {overlay !== "none" && (
         <div
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black text-white text-base font-medium transition-opacity duration-300"
           style={{
@@ -68,7 +65,7 @@ function PlaygroundShell({ children }: { children: React.ReactNode }) {
             ? "Welcome to the Lab! Unleash your creativity."
             : "Goodbye! Your ideas await your return."}
         </div>
-      )}
+      )} */}
       {/* HEADER CONTAINER */}
       <div
         className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
@@ -110,8 +107,10 @@ export default function PlaygroundLayout({
   children: React.ReactNode;
 }) {
   return (
-    <StateProvider>
-      <PlaygroundShell>{children}</PlaygroundShell>
-    </StateProvider>
+    <>
+      <StateProvider>
+        <PlaygroundShell>{children}</PlaygroundShell>
+      </StateProvider>
+    </>
   );
 }

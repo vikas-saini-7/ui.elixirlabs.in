@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import PlaygroundMainComponent from "@/app/playground/my-components";
+import Playground from "@/playground/index";
 
 export default function PlaygroundPage() {
   if (process.env.NEXT_PUBLIC_ENABLE_PLAYGROUND !== "true") {
@@ -7,9 +7,8 @@ export default function PlaygroundPage() {
   }
 
   return (
-    <>
-      {/* STRICTLY DO NOT CHANGE THIS COMPONENT CODE (for component builders)  */}
-      <PlaygroundMainComponent />
-    </>
+    <div>
+      <Playground />
+    </div>
   );
 }

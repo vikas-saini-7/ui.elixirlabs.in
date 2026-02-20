@@ -41,5 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 
-# ignoring playground components so that we can test changes without committing them. The folder and all its contents are ignored by git.
-app/playground/my-components/
+# Ignore everything inside playground (recursive)
+playground/**
+# But keep index.tsx
+!playground/index.tsx
