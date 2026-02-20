@@ -2,13 +2,13 @@
 
 import React from "react";
 import { Moon, Sun, ArrowLeft, Maximize2, Minimize2 } from "lucide-react";
-import { useTheme } from "../contexts/ThemeContext";
-import { usePlaygroundState } from "../contexts/StateContext";
 import { useRouter } from "next/navigation";
+import { usePlaygroundState } from "@/contexts/PlaygroundStateContext";
 
-const PlaygroundHeader = () => {
-  const { dark, toggleTheme } = useTheme();
+const PlaygroundHeader = ({ onLeave }: { onLeave?: () => void }) => {
   const {
+    dark,
+    toggleTheme,
     fullWidth,
     toggleFullWidth,
     verticalAlign,
@@ -34,6 +34,16 @@ const PlaygroundHeader = () => {
   };
   const router = useRouter();
 
+  // Intercept exit to show overlay before navigating
+  const handleExit = () => {
+    if (onLeave) {
+      onLeave();
+      setTimeout(() => router.push("/"), 3000);
+    } else {
+      router.push("/");
+    }
+  };
+
   return (
     <header className="h-16 backdrop-blur-md border-b border-dashed bg-[#0a0a0a] text-white">
       <div className="container mx-auto px-4 h-full flex items-center justify-between">
@@ -41,7 +51,7 @@ const PlaygroundHeader = () => {
         <div className="flex items-center gap-3">
           {/* Exit Button */}
           <button
-            onClick={() => router.push("/")}
+            onClick={handleExit}
             className="p-2 rounded-md hover:bg-muted transition"
             aria-label="Exit Playground"
           >
@@ -49,7 +59,7 @@ const PlaygroundHeader = () => {
           </button>
 
           <h1 className="font-semibold text-lg tracking-tight">
-            Component Lab
+            Elixir Component Lab
           </h1>
         </div>
 

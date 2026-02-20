@@ -23,7 +23,7 @@ const mainNavigations = [
 const Header: React.FC = () => {
   const pathname = usePathname();
 
-  if (pathname === "/playground") return null;
+  if (pathname.startsWith("/playground")) return null;
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md container mx-auto px-4 h-16 flex items-center justify-between border-b border-dashed">
       {/* left  */}

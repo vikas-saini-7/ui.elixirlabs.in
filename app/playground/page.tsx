@@ -1,18 +1,17 @@
+import React from "react";
+import Try from "./Try";
 import { notFound } from "next/navigation";
 
-export default function PlaygroundPage() {
+const page = () => {
   if (process.env.NEXT_PUBLIC_ENABLE_PLAYGROUND !== "true") {
     notFound();
   }
 
   return (
-    <div className="space-y-6">
-      {/* <h2 className="text-2xl font-semibold">Welcome to Component Lab</h2>
-      <p className="text-muted-foreground">
-        Build, test, and stress your components here.
-      </p> */}
-
-      <div className="bg-red-500 w-40 h-40 rounded shadow-lg" />
+    <div className="bg-white text-black w-full h-[calc(100vh-4rem)] flex items-center justify-center">
+      <Try />
     </div>
   );
-}
+};
+
+export default page;

@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Ignore everything inside playground (recursive)
+playground/**
+# But keep index.tsx
+!playground/index.tsx
