@@ -3,7 +3,10 @@
 import React from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import PlaygroundHeader from "@/components/playground/PlaygroundHeader";
-import { StateProvider, usePlaygroundState } from "../../contexts/PlaygroundStateContext";
+import {
+  StateProvider,
+  usePlaygroundState,
+} from "../../contexts/PlaygroundStateContext";
 
 import { useEffect, useState, useCallback } from "react";
 
@@ -28,6 +31,7 @@ function PlaygroundShell({ children }: { children: React.ReactNode }) {
     const timer = setTimeout(() => setOverlay("none"), 3000);
     return () => clearTimeout(timer);
   }, []);
+  console.log(overlay);
 
   // Handler to show leaving overlay for 3 seconds
   const showLeavingOverlay = useCallback(() => {
