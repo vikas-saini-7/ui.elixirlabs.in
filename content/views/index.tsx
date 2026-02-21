@@ -1,18 +1,28 @@
 import Link from "next/link";
+
+// views
 import { Callout } from "./callout";
 import { FrameworkCard, FrameworkGrid } from "./framework-grid";
 import CodeBlock from "./code-block";
 import { ComingSoon } from "./coming-soon";
+import ComponentPreview from "./ComponentPreview";
+
+// components
+import { CircularText } from "@/registry/blocks/circular-text/circular-text";
 
 export const mdxComponents = {
+  // views
+  ComponentPreview,
   FrameworkGrid,
   FrameworkCard,
   Callout,
   ComingSoon,
-  /**
-   * Override markdown links
-   * So `[text](/docs)` uses Next Link
-   */
+
+  // components
+  CircularText,
+
+  // standard markdown elements
+
   a: ({ href, children, ...props }: any) => {
     const isExternal = href?.startsWith("http");
 

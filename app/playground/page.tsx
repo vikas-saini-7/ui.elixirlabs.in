@@ -1,5 +1,5 @@
 import React from "react";
-import Try from "./Try";
+import PlayGround from "./PlayGround";
 import { notFound } from "next/navigation";
 
 const page = () => {
@@ -8,8 +8,8 @@ const page = () => {
   }
 
   return (
-    <div className="bg-white text-black w-full h-[calc(100vh-4rem)] flex items-center justify-center">
-      <Try />
+    <div className="bg-white text-black w-full h-[calc(100vh)] flex items-center justify-center">
+      <PlayGround />
     </div>
   );
 };

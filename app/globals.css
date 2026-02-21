@@ -1,18 +1,3 @@
-/* Custom minimal scrollbar for sidebar */
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: var(--sidebar-border) transparent;
-}
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--sidebar-border);
-  border-radius: 6px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -138,11 +123,37 @@
 }
 
 .debug-grid {
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.05) 1px,
-      transparent 1px
-    ),
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 24px 24px;
+}
+
+/* ANIMATIONS  */
+
+/* Custom minimal scrollbar for sidebar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sidebar-border) transparent;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--sidebar-border);
+  border-radius: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Minimal custom scrollbar for code blocks */
+.code-block-scrollbar {
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Webkit browsers */
+.code-block-scrollbar::-webkit-scrollbar {
+  display: none;
 }

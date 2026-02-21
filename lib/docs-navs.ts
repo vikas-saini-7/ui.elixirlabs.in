@@ -28,6 +28,7 @@ export const docsNavigation: NavSection[] = [
   {
     label: "Text Effects",
     items: [
+      { label: "Circular Text", slug: "/docs/circular-text" },
       { label: "Text", slug: "/docs/text" },
       { label: "Pulpy", slug: "/docs/pulpy" },
     ],

@@ -39,16 +39,18 @@ export default function CodeBlock({ language = "tsx", code }: CodeBlockProps) {
         style={oneDark}
         customStyle={{
           margin: 0,
-          padding: "1rem",
+          padding: "1.5rem",
           borderRadius: "0.75rem",
           background: "rgba(107, 114, 128, 0.1)",
+          maxHeight: "350px", // Limit logical height
+          overflow: "auto", // Ensure scroll when overflow
         }}
+        className="code-block-scrollbar"
         codeTagProps={{
           style: {
             background: "transparent",
           },
         }}
-        wrapLongLines
       >
         {code}
       </SyntaxHighlighter>

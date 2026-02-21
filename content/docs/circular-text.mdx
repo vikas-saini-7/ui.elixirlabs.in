@@ -1,0 +1,90 @@
+# Circular text
+
+<ComponentPreview center>
+  <CircularText
+    text=" ✦ Elixir UI  ✦  Ship Faster ✦  Build Better"
+    size="lg"
+    speed={12}
+    direction="counter-clockwise"
+    pauseOnHover
+    textColor="#000"
+    letterSpacing={2}
+    startAngle={-90}
+    logoSpeed={4}
+    logoUrl="https://raw.githubusercontent.com/elixir-labs-global/ui.elixirlabs.in/main/assets/elixir-ui-logo.svg"
+  />
+</ComponentPreview>
+
+## Installation
+
+```txt
+npx shadcn@latest add https://ui.elixirlabs.in/r/circular-text.json
+```
+
+## Usage
+```tsx
+import { CircularText } from "@/components/circular-text/circular-text";
+
+<CircularText
+    text=" ✦ Elixir UI  ✦  Ship Faster ✦  Build Better"
+    size="lg"
+    speed={12}
+    direction="counter-clockwise"
+    textColor="#000"
+    letterSpacing={2}
+    startAngle={-90}
+    logoSpeed={4}
+    logoUrl="https://raw.githubusercontent.com/elixir-labs-global/ui.elixirlabs.in/main/assets/elixir-ui-logo.svg"
+/>
+```
+
+
+
+
+## Examples
+
+### direction
+
+<ComponentPreview center>
+  <CircularText
+    text=" ✦ Elixir UI  ✦  Ship Faster ✦  Build Better"
+    size="lg"
+    speed={12}
+    direction="clockwise"
+    textColor="#000"
+    letterSpacing={2}
+    startAngle={-90}
+    logoSpeed={4}
+    logoUrl="https://raw.githubusercontent.com/elixir-labs-global/ui.elixirlabs.in/main/assets/elixir-ui-logo.svg"
+  />
+</ComponentPreview>
+
+```tsx
+direction="clockwise"
+```
+
+
+### size
+
+<ComponentPreview center>
+  <CircularText
+    text=" ✦ Elixir UI  ✦  Ship Faster ✦  Build Better"
+    size="sm"
+    speed={12}
+    direction="clockwise"
+    textColor="#000"
+    letterSpacing={2}
+    startAngle={-90}
+    logoSpeed={4}
+    logoUrl="https://raw.githubusercontent.com/elixir-labs-global/ui.elixirlabs.in/main/assets/elixir-ui-logo.svg"
+  />
+</ComponentPreview>
+
+```tsx
+size="sm" // "sm" | "md" | "lg"
+```
+
+
+## API Reference
+
+coming soon...
