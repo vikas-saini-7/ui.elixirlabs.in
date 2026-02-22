@@ -1,19 +1,15 @@
-import { CircularText } from "./my-work/circular-text";
+import { OnThisPage } from "./my-work/on-this-page";
+
+const items = [
+  { id: "introduction", label: "Introduction", level: 1 },
+  { id: "installation", label: "Installation", level: 2 },
+  { id: "usage", label: "Usage", level: 2 },
+  { id: "advanced", label: "Advanced", level: 3 },
+];
 
 const PlayGround = () => (
-  <div>
-    <CircularText
-      text=" ✦ Elixir UI  ✦  Ship Faster ✦  Build Better"
-      size="lg"
-      speed={12}
-      direction="counter-clockwise"
-      pauseOnHover
-      textColor="#000"
-      letterSpacing={2}
-      startAngle={-90}
-      logoSpeed={4}
-      logoUrl="https://raw.githubusercontent.com/elixir-labs-global/ui.elixirlabs.in/main/assets/elixir-ui-logo.svg"
-    />
+  <div className="">
+    <OnThisPage label="On this page" items={items} />
   </div>
 );
 

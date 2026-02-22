@@ -9,6 +9,7 @@ import ComponentPreview from "./ComponentPreview";
 
 // components
 import { CircularText } from "@/registry/blocks/circular-text/circular-text";
+import { OnThisPage } from "@/registry/blocks/on-this-page/on-this-page-demo";
 
 export const mdxComponents = {
   // views
@@ -20,6 +21,7 @@ export const mdxComponents = {
 
   // components
   CircularText,
+  OnThisPage,
 
   // standard markdown elements
 
