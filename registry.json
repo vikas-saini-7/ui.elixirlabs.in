@@ -14,6 +14,18 @@
           "type": "registry:component"
         }
       ]
+    },
+     {
+      "name": "on-this-page",
+      "type": "registry:component",
+      "title": "On This Page",
+      "description": "A component that displays a list of page sections",
+      "files": [
+        {
+          "path": "registry/blocks/on-this-page/on-this-page.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }

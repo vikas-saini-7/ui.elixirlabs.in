@@ -1,1 +1,61 @@
 # On This Page
+
+<ComponentPreview>
+  <OnThisPage
+  items={
+    [{ id: "getting-started", label: "Getting Started", level: 1 }, { id: "project-setup", label: "Project Setup", level: 1 }, { id: "environment-variables", label: "Environment Variables", level: 2 }, { id: "authentication-flow", label: "Authentication Flow", level: 1 }, { id: "login", label: "Login", level: 2 }, { id: "registration", label: "Registration", level: 2 }, { id: "password-reset", label: "Password Reset", level: 3 }, { id: "authorization", label: "Authorization", level: 1 }, { id: "role-based-access", label: "Role-Based Access", level: 2 }, { id: "best-practices", label: "Best Practices", level: 1 }]
+  }
+   />
+</ComponentPreview>
+
+## Installation
+
+```txt
+npx shadcn@latest add https://ui.elixirlabs.in/r/on-this-page.json
+```
+
+## Usage
+```tsx
+import { OnThisPage } from "@/components/on-this-page/on-this-page";
+
+<OnThisPage
+    label="On this page"
+    items={[
+        { id: "getting-started", label: "Getting Started", level: 1 },
+        { id: "project-setup", label: "Project Setup", level: 1 },
+        { id: "environment-variables", label: "Environment Variables", level: 2 },
+        { id: "authentication-flow", label: "Authentication Flow", level: 1 },
+        ...
+    ]}
+/>
+```
+
+## Examples
+
+### variant
+<ComponentPreview>
+  <OnThisPage
+    items={[
+        { id: "introduction", label: "Introduction", level: 1 },
+        { id: "installation", label: "Installation", level: 1 },
+        { id: "installation-requirements", label: "Requirements", level: 2 },
+        { id: "installation-setup", label: "Setup", level: 2 },
+        { id: "usage", label: "Usage", level: 1 },
+        { id: "usage-basic", label: "Basic Usage", level: 2 },
+        { id: "usage-advanced", label: "Advanced Usage", level: 2 },
+        { id: "usage-advanced-configuration", label: "Configuration Options", level: 3,}
+    ]}
+    variant="bullet"
+  />
+</ComponentPreview>
+```tsx
+
+<OnThisPage
+    variant="bullet" // "none" | "bullet"
+/>
+```
+
+
+## API Reference
+
+coming soon...

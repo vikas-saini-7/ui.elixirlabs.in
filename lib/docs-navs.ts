@@ -18,19 +18,19 @@ export const docsNavigation: NavSection[] = [
       { label: "Releases", slug: "/docs/releases" },
     ],
   },
-  // {
-  //   label: "UI Components",
-  //   items: [
-  //     { label: "On This Page", slug: "/docs/on-this-page" },
-  //     { label: "Digital Timer", slug: "/docs/digital-timer" },
-  //   ],
-  // },
   {
     label: "Text Effects",
     items: [
       { label: "Circular Text", slug: "/docs/circular-text" },
       // { label: "Text", slug: "/docs/text" },
       // { label: "Pulpy", slug: "/docs/pulpy" },
+    ],
+  },
+  {
+    label: "UI Components",
+    items: [
+      { label: "On This Page", slug: "/docs/on-this-page" },
+      // { label: "Digital Timer", slug: "/docs/digital-timer" },
     ],
   },
 ];
