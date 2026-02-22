@@ -15,7 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Elixir UI",
-  description: "Reusable minimal components",
+  description: "",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
